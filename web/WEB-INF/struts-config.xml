@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+        "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+    <!-- ================================================ Form Bean Definitions -->
+    <form-beans>
+        <form-bean name="localeForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="country" type="java.lang.String"/>
+            <form-property name="language" type="java.lang.String"/>
+            <form-property name="page" type="java.lang.String"/>
+        </form-bean>
+        <form-bean name="loginForm" type="com.coco.form.LoginForm"/>
+        <form-bean name="subscribeForm" type="com.coco.form.SubscribeForm"/>
+        <form-bean name="problemForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="col" type="java.lang.String"/>
+            <form-property name="row" type="java.lang.String"/>
+            <form-property name="operation" type="java.lang.String"/>
+            <form-property name="inCOCO" type="com.coco.vo.InputVO"/>
+            <form-property name="outCOCO" type="com.coco.vo.OutputVO"/>
+        </form-bean>
+        <form-bean name="xlsForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="file" type="org.apache.struts.upload.FormFile"/>
+        </form-bean>
+    </form-beans>
+    <!-- ========================================= Global Exception Definitions -->
+    <global-exceptions>
+        <!-- sample exception handler
+        <exception key="expired.password" type="app.ExpiredPasswordException" path="/changePassword.jsp"/>
+        -->
+    </global-exceptions>
+    <!-- =========================================== Global Forward Definitions -->
+    <global-forwards>
+        <forward name="loginPage" path="loginPageDef"/>
+        <forward name="initPage" path="initPageDef"/>
+        <forward name="inputPage" path="inputPageDef"/>
+        <forward name="showPage" path="showPageDef"/>
+        <forward name="outputPage" path="outputPageDef"/>
+        <forward name="initOutPage" path="initOutPageDef"/>
+    </global-forwards>
+    <!-- =========================================== Action Mapping Definitions -->
+    <action-mappings>
+        <action path="/locale" name="localeForm" scope="request" type="com.coco.action.LocaleAction"/>
+        <action path="/loginPage" forward="loginPageDef"/>
+        <action path="/login" name="loginForm" scope="session" type="com.coco.action.LoginAction" validate="true"/>
+        <action path="/logout" type="com.coco.action.LogoutAction"/>
+        <action path="/subscribe" name="subscribeForm" scope="request" type="com.coco.action.SubscribeAction" validate="true"/>
+        <action path="/createProblem" name="problemForm" scope="request" type="com.coco.action.CreateProblemAction"/>
+        <action path="/saveProblem" name="problemForm" parameter="operation" scope="request" type="com.coco.action.SaveProblemAction"/>
+        <action path="/showProblem" name="problemForm" scope="request" parameter="operation" type="com.coco.action.ShowProblemAction"/>
+        <action path="/deleteProblem" type="com.coco.action.DeleteProblemAction"/>
+        <action path="/initOutPage" forward="initOutPageDef"/>
+        <action path="/initPage" forward="initPageDef"/>
+        <action path="/xlsIn" forward="xlsInPageDef"/>
+        <action path="/loadXLS" name="xlsForm" type="com.coco.action.LoadXLS" scope="request"/>
+        <action path="/downloadXLS" name="problemForm" type="com.coco.action.DownloadXLS"/>
+    </action-mappings>
+    <!-- ============================================= Controller Configuration -->
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+    <!-- ======================================== Message Resources Definitions -->
+    <message-resources null="false" parameter="ApplicationResources"/>
+    <!-- ===================================================== Validator plugin -->
+    <!-- ========================================================= Tiles plugin -->
+    <!-- ========================================================== COCO plugin -->
+    <plug-in className="com.coco.service.COCOServiceFactoryImpl"/>
+    <plug-in className="org.apache.struts.tiles.TilesPlugin">
+        <set-property value="/WEB-INF/tiles-defs.xml" property="definitions-config"/>
+    </plug-in>
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property value="/org/apache/struts/validator/validator-rules.xml,/WEB-INF/validation.xml" property="pathnames"/>
+    </plug-in>
+</struts-config>

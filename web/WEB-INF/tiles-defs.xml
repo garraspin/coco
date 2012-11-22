@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+        "http://struts.apache.org/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+    <definition name="initPageDef" page="/WEB-INF/pages/defaultLayout.jsp">
+        <put name="header" value="/WEB-INF/pages/headerIn.jsp"/>
+        <put name="menu" value="/WEB-INF/pages/menuIn.jsp"/>
+        <put name="sidebar" value="/WEB-INF/pages/sidebarIn.jsp"/>
+        <put name="body" value="/WEB-INF/pages/init.jsp"/>
+        <put name="footer" value="/WEB-INF/pages/footerIn.jsp"/>
+    </definition>
+
+    <definition name="inputPageDef" extends="initPageDef">
+        <put name="body" value="/WEB-INF/pages/cocoProblemIn.jsp"/>
+    </definition>
+
+    <definition name="xlsInPageDef" extends="initPageDef">
+        <put name="body" value="/WEB-INF/pages/xlsIn.jsp"/>
+    </definition>
+
+    <definition name="initOutPageDef" page="/WEB-INF/pages/defaultLayout.jsp">
+        <put name="header" value="/WEB-INF/pages/headerOut.jsp"/>
+        <put name="menu" value="/WEB-INF/pages/menuOut.jsp"/>
+        <put name="sidebar" value="/WEB-INF/pages/sidebarOut.jsp"/>
+        <put name="body" value="/WEB-INF/pages/initOut.jsp"/>
+        <put name="footer" value="/WEB-INF/pages/footerOut.jsp"/>
+    </definition>
+
+    <definition name="outputPageDef" extends="initOutPageDef">
+        <put name="body" value="/WEB-INF/pages/cocoProblemOut.jsp"/>
+    </definition>
+
+    <definition name="loginPageDef" path="/pages/loginLayout.jsp">
+        <put name="flags" value="/pages/flags.jsp"/>
+        <put name="login" value="/pages/login.jsp"/>
+        <put name="subscribe" value="/pages/subscribe.jsp"/>
+    </definition>
+</tiles-definitions>

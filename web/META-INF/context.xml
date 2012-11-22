@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<Context docBase="coco" path="/" reloadable="true">
+    <Resource auth="Container"
+              driverClassName="org.postgresql.Driver"
+              maxActive="10"
+              maxIdle="5"
+              maxWait="5000"
+              name="jdbc/cocoDB"
+              password=""
+              type="javax.sql.DataSource"
+              url="jdbc:postgresql://localhost:5432/cocoDB"
+              username="smunoz"
+              validationQuery="select count(*) from pg_tables"/>
+</Context>

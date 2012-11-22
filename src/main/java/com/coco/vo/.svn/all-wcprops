@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/cocoapplication/!svn/ver/39/trunk/coco/JavaSource/com/coco/vo
+END
+BaseVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/cocoapplication/!svn/ver/39/trunk/coco/JavaSource/com/coco/vo/BaseVO.java
+END
+Utils.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/cocoapplication/!svn/ver/35/trunk/coco/JavaSource/com/coco/vo/Utils.java
+END
+UserVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/cocoapplication/!svn/ver/35/trunk/coco/JavaSource/com/coco/vo/UserVO.java
+END
+CellVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/cocoapplication/!svn/ver/39/trunk/coco/JavaSource/com/coco/vo/CellVO.java
+END
+InputVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/cocoapplication/!svn/ver/38/trunk/coco/JavaSource/com/coco/vo/InputVO.java
+END
+OutputVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/cocoapplication/!svn/ver/39/trunk/coco/JavaSource/com/coco/vo/OutputVO.java
+END
+AttributeVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/cocoapplication/!svn/ver/37/trunk/coco/JavaSource/com/coco/vo/AttributeVO.java
+END
+ElementVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/cocoapplication/!svn/ver/37/trunk/coco/JavaSource/com/coco/vo/ElementVO.java
+END
