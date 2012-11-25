@@ -6,34 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33b6cc64-aacf-4d83-9338-ac0dc837a717" name="Default" comment="Clean up">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/coco/struts/ActionUtils.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/coco/struts/CustomBaseAction.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/coco/struts/CustomDispatchAction.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/coco/struts/CustomBaseAction.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/coco/struts/CustomDispatchAction.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coco.ipr" afterPath="$PROJECT_DIR$/coco.ipr" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coco.iws" afterPath="$PROJECT_DIR$/coco.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/coco/action/CreateProblemAction.java" afterPath="$PROJECT_DIR$/src/main/java/com/coco/action/CreateProblemAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/coco/action/DeleteProblemAction.java" afterPath="$PROJECT_DIR$/src/main/java/com/coco/action/DeleteProblemAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/coco/action/DownloadXLS.java" afterPath="$PROJECT_DIR$/src/main/java/com/coco/action/DownloadXLS.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/coco/action/LoadXLS.java" afterPath="$PROJECT_DIR$/src/main/java/com/coco/action/LoadXLS.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/coco/action/LocaleAction.java" afterPath="$PROJECT_DIR$/src/main/java/com/coco/action/LocaleAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/coco/action/LoginAction.java" afterPath="$PROJECT_DIR$/src/main/java/com/coco/action/LoginAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/coco/action/LogoutAction.java" afterPath="$PROJECT_DIR$/src/main/java/com/coco/action/LogoutAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/coco/action/SaveProblemAction.java" afterPath="$PROJECT_DIR$/src/main/java/com/coco/action/SaveProblemAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/coco/action/ShowProblemAction.java" afterPath="$PROJECT_DIR$/src/main/java/com/coco/action/ShowProblemAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/coco/action/SubscribeAction.java" afterPath="$PROJECT_DIR$/src/main/java/com/coco/action/SubscribeAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/coco/service/COCOServiceFactoryImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/coco/service/COCOServiceFactoryImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/log4j.properties" afterPath="$PROJECT_DIR$/src/main/java/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/struts-config.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/struts-config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/tiles-defs.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/tiles-defs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/cocoList.jsp" afterPath="$PROJECT_DIR$/web/pages/cocoList.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/cocoListOut.jsp" afterPath="$PROJECT_DIR$/web/pages/cocoListOut.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/cocoProblemIn.jsp" afterPath="$PROJECT_DIR$/web/pages/cocoProblemIn.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/defaultLayout.jsp" afterPath="$PROJECT_DIR$/web/pages/defaultLayout.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/loginLayout.jsp" afterPath="$PROJECT_DIR$/web/pages/loginLayout.jsp" />
-    </list>
+    <list default="true" id="33b6cc64-aacf-4d83-9338-ac0dc837a717" name="Default" comment="Clean up" />
     <ignored path="coco.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -109,7 +82,7 @@
       <file leaf-file-name="cocoList.jsp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/pages/cocoList.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="24" selection-start="554" selection-end="554" vertical-scroll-proportion="0.48109967">
+            <state line="14" column="24" selection-start="554" selection-end="554" vertical-scroll-proportion="0.61403507">
               <folding />
             </state>
           </provider>
@@ -1115,7 +1088,7 @@
     <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297604" sideWeight="0.67107004" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32912722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32912722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297604" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280757" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1133,8 +1106,8 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29238507" sideWeight="0.3685601" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21507353" sideWeight="0.67087275" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46161935" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21507353" sideWeight="0.5383806" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.46161935" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1329,7 +1302,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/pages/cocoList.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="24" selection-start="554" selection-end="554" vertical-scroll-proportion="0.48109967">
+        <state line="14" column="24" selection-start="554" selection-end="554" vertical-scroll-proportion="0.61403507">
           <folding />
         </state>
       </provider>
