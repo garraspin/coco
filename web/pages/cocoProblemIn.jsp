@@ -31,10 +31,11 @@
 				<!-- 6. idFunction -->
 				<tr>
 					<td><bean:message key="coco.functionTitle" /></td>
-					<td><nested:select property="idFunction">
-						<html:optionsCollection value="id" name="UserContainer"
-							property="functionsList" label="name" />
-					</nested:select></td>
+					<td>
+                        <nested:select property="idFunction">
+						    <html:optionsCollection value="id" name="UserContainer" property="functionsList" label="name" />
+					    </nested:select>
+                    </td>
 				</tr>
 				<!-- 7. negativeAllowed -->
 				<tr>
@@ -73,10 +74,10 @@
 					</nested:iterate>
 					<td>
 						<html:link action="/saveProblem.do?operation=alterRowCol&amp;col=1&amp;row=0">
-						<html:img align="left" src="../pages/images/plus.gif" border="0" height="30" />
+						<html:img align="left" src="../static/plus.gif" border="0" height="30" />
 						</html:link>
 						<html:link action="/saveProblem.do?operation=alterRowCol&amp;col=-1&amp;row=0">
-						<html:img src="../pages/images/minus.gif" border="0" height="30" />
+						<html:img src="../static/minus.gif" border="0" height="30" />
 						</html:link>
 					</td>
 					<td><nested:text size="10" property="attributeY" /></td>
@@ -100,10 +101,10 @@
 				<tr>
 					<td>
 						<html:link action="/saveProblem.do?operation=alterRowCol&amp;col=0&amp;row=1">
-						<html:img align="left" src="../pages/images/plus.gif" border="0" height="30" />
+						<html:img align="left" src="../static/plus.gif" border="0" height="30" />
 						</html:link>
 						<html:link action="/saveProblem.do?operation=alterRowCol&amp;col=0&amp;row=-1">
-						<html:img src="../pages/images/minus.gif" border="0" height="30" />
+						<html:img src="../static/minus.gif" border="0" height="30" />
 						</html:link>
 					</td>
 					<td colspan="<%= numAttributes + 2 %>">&nbsp;</td>

@@ -1,35 +1,38 @@
 package com.coco.action;
 
-import java.io.IOException;
-
-import javax.servlet.ServletException;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.coco.service.ICOCOService;
+import com.coco.struts.ActionUtils;
+import com.coco.struts.UserContainer;
+import com.coco.vo.BaseVO;
+import com.coco.vo.InputVO;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.actions.DispatchAction;
 import org.apache.struts.validator.DynaValidatorForm;
 
-import com.coco.service.ICOCOService;
-import com.coco.struts.CustomDispatchAction;
-import com.coco.struts.UserContainer;
-import com.coco.vo.InputVO;
+public class SaveProblemAction extends DispatchAction {
 
-public class SaveProblemAction extends CustomDispatchAction {
-	public ActionForward save(ActionMapping mapping, ActionForm form,
-			HttpServletRequest request, HttpServletResponse response) {
+    private final ActionUtils actionUtils = new ActionUtils();
+
+	public ActionForward save(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+                              HttpServletResponse response) {
 		// Obtener el problema del formulario
 		InputVO inCOCO = (InputVO) ((DynaValidatorForm) form).get("inCOCO");
+		UserContainer existingContainer = actionUtils.getUserContainer(request);
+        ICOCOService serviceImpl = actionUtils.getCOCOService(servlet);
 
-		UserContainer existingContainer = getUserContainer(request);
-
-		// Guardar los input del problema en la base de datos
-		ICOCOService serviceImpl = getCOCOService();
-		serviceImpl.setCOCOInput(inCOCO, existingContainer.getUserVO().getId());
+        // Guardar los input del problema en la base de datos
+        int userId = existingContainer.getUserVO().getId();
+        serviceImpl.setCOCOInput(inCOCO, userId);
 
 		// Obtener la nueva lista de problemas
-		existingContainer.getListCOCO().setProblems(serviceImpl.getListCOCOProblems(existingContainer.getUserVO().getId()));
+        List<BaseVO> listCOCOProblems = serviceImpl.getListCOCOProblems(userId);
+        existingContainer.getListCOCO().setProblems(listCOCOProblems);
 
 		// Determinar el actual problema
 		existingContainer.getListCOCO().getActualCOCO().setInCOCO(inCOCO);
@@ -37,15 +40,14 @@ public class SaveProblemAction extends CustomDispatchAction {
 		return mapping.findForward("initPage");
 	}
 
-	public ActionForward alterRowCol(ActionMapping mapping, ActionForm form,
-			HttpServletRequest request, HttpServletResponse response) {
-
+	public ActionForward alterRowCol(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+                                     HttpServletResponse response) {
 		// Obtener los modificadores del formulario
 		int nRowValue = Integer.valueOf(((DynaValidatorForm) form).getString("row"));
 		int nColValue = Integer.valueOf(((DynaValidatorForm) form).getString("col"));
 
 		// Obtener problema de la sesión y ponerlo en el formulario
-		UserContainer usercontainer = getUserContainer(request);
+		UserContainer usercontainer = actionUtils.getUserContainer(request);
 		InputVO inCOCO = usercontainer.getListCOCO().getActualCOCO().getInCOCO();
 
 		if (nRowValue > 0) {

@@ -15,9 +15,9 @@
         <form-bean name="loginForm" type="com.coco.form.LoginForm"/>
         <form-bean name="subscribeForm" type="com.coco.form.SubscribeForm"/>
         <form-bean name="problemForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="operation" type="java.lang.String"/>
             <form-property name="col" type="java.lang.String"/>
             <form-property name="row" type="java.lang.String"/>
-            <form-property name="operation" type="java.lang.String"/>
             <form-property name="inCOCO" type="com.coco.vo.InputVO"/>
             <form-property name="outCOCO" type="com.coco.vo.OutputVO"/>
         </form-bean>
@@ -36,7 +36,6 @@
         <forward name="loginPage" path="loginPageDef"/>
         <forward name="initPage" path="initPageDef"/>
         <forward name="inputPage" path="inputPageDef"/>
-        <forward name="showPage" path="showPageDef"/>
         <forward name="outputPage" path="outputPageDef"/>
         <forward name="initOutPage" path="initOutPageDef"/>
     </global-forwards>
@@ -49,7 +48,7 @@
         <action path="/subscribe" name="subscribeForm" scope="request" type="com.coco.action.SubscribeAction" validate="true"/>
         <action path="/createProblem" name="problemForm" scope="request" type="com.coco.action.CreateProblemAction"/>
         <action path="/saveProblem" name="problemForm" parameter="operation" scope="request" type="com.coco.action.SaveProblemAction"/>
-        <action path="/showProblem" name="problemForm" scope="request" parameter="operation" type="com.coco.action.ShowProblemAction"/>
+        <action path="/showProblem" name="problemForm" parameter="operation" scope="request" type="com.coco.action.ShowProblemAction"/>
         <action path="/deleteProblem" type="com.coco.action.DeleteProblemAction"/>
         <action path="/initOutPage" forward="initOutPageDef"/>
         <action path="/initPage" forward="initPageDef"/>
@@ -61,13 +60,13 @@
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
     <!-- ======================================== Message Resources Definitions -->
     <message-resources null="false" parameter="ApplicationResources"/>
-    <!-- ===================================================== Validator plugin -->
-    <!-- ========================================================= Tiles plugin -->
     <!-- ========================================================== COCO plugin -->
     <plug-in className="com.coco.service.COCOServiceFactoryImpl"/>
+    <!-- ========================================================= Tiles plugin -->
     <plug-in className="org.apache.struts.tiles.TilesPlugin">
         <set-property value="/WEB-INF/tiles-defs.xml" property="definitions-config"/>
     </plug-in>
+    <!-- ===================================================== Validator plugin -->
     <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
         <set-property value="/org/apache/struts/validator/validator-rules.xml,/WEB-INF/validation.xml" property="pathnames"/>
     </plug-in>

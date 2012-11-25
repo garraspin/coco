@@ -1,41 +1,40 @@
 package com.coco.action;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jxl.Workbook;
-import jxl.write.Label;
-import jxl.write.WritableSheet;
-import jxl.write.WritableWorkbook;
-import jxl.write.WriteException;
-import jxl.write.biff.RowsExceededException;
-
-import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionForward;
-import org.apache.struts.action.ActionMapping;
-import org.apache.struts.util.MessageResources;
-
-import com.coco.struts.CustomBaseAction;
+import com.coco.struts.ActionUtils;
 import com.coco.struts.UserContainer;
 import com.coco.vo.AttributeVO;
 import com.coco.vo.CellVO;
 import com.coco.vo.ElementVO;
 import com.coco.vo.InputVO;
 import com.coco.vo.OutputVO;
+import jxl.Workbook;
+import jxl.write.Label;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
+import jxl.write.WriteException;
+import jxl.write.biff.RowsExceededException;
+import org.apache.struts.action.Action;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
+import org.apache.struts.util.MessageResources;
 
-public class DownloadXLS extends CustomBaseAction {
-	public ActionForward execute(ActionMapping mapping, ActionForm form,
-			HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String contentType = "application/vnd.ms-excel";
-		response.setContentType(contentType);
-		response.setHeader("Content-Disposition",
-				"attachment; filename=sampleName.xls");
+public class DownloadXLS extends Action {
 
-		UserContainer existingContainer = getUserContainer(request);
+    private final ActionUtils actionUtils = new ActionUtils();
+
+	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+                                 HttpServletResponse response
+    ) throws ServletException, IOException {
+        response.setContentType("application/vnd.ms-excel");
+		response.setHeader("Content-Disposition", "attachment; filename=sampleName.xls");
+
+		UserContainer existingContainer = actionUtils.getUserContainer(request);
 		MessageResources messageResources = getResources(request);
 
 		InputVO inCOCO = existingContainer.getListCOCO().getActualCOCO().getInCOCO();
@@ -56,11 +55,9 @@ public class DownloadXLS extends CustomBaseAction {
 		return mapping.findForward("outputPage");
 	}
 
-    private void addInputSheet(WritableWorkbook w,
-                               UserContainer existingContainer,
-                               MessageResources messageResources,
-                               InputVO inCOCO,
-                               OutputVO outCOCO) throws WriteException {
+    private void addInputSheet(WritableWorkbook w, UserContainer existingContainer, MessageResources messageResources,
+                               InputVO inCOCO, OutputVO outCOCO
+    ) throws WriteException {
         int numAttributes = inCOCO.getAttributes().size();
         int numElements = inCOCO.getElements().size();
 
@@ -73,8 +70,7 @@ public class DownloadXLS extends CustomBaseAction {
         s.addCell(new Label(0, 2, messageResources.getMessage("coco.description")));
         s.addCell(new Label(1, 2, inCOCO.getDescription()));
         // id function, negative allowed and equilibrium
-        s.addCell(new Label(0, 3, messageResources
-                .getMessage("coco.functionTitle")));
+        s.addCell(new Label(0, 3, messageResources.getMessage("coco.functionTitle")));
         s.addCell(new Label(1, 3, existingContainer.getFunctionsList().get(inCOCO.getIdFunction() - 1).getName()));
         s.addCell(new Label(0, 4, messageResources.getMessage("coco.negativeAllowed")));
         s.addCell(new Label(1, 4, String.valueOf(inCOCO.getNegativeAllowed())));
@@ -105,16 +101,14 @@ public class DownloadXLS extends CustomBaseAction {
         s.addCell(new Label(0, 15, messageResources.getMessage("coco.rankRuleTitle")));
         for (int i = 0; i < numAttributes; i++) {
             AttributeVO attribute = inCOCO.getAttributes().get(i);
-            s.addCell(new Label(1 + i, 14, String.valueOf(attribute.getOptima())));
-            s.addCell(new Label(1 + i, 15,
-                                existingContainer.getRankRulesList().get(attribute.getRankRule() - 1).getName()));
+            s.addCell(new Label(i + 1, 14, String.valueOf(attribute.getOptima())));
+            String rankRule = existingContainer.getRankRulesList().get(attribute.getRankRule() - 1).getName();
+            s.addCell(new Label(i + 1, 15, rankRule));
         }
     }
 
-    private void addOutputSheet(WritableWorkbook w,
-                                MessageResources messageResources,
-                                InputVO inCOCO,
-                                OutputVO outCOCO) throws WriteException {
+    private void addOutputSheet(WritableWorkbook w, MessageResources messageResources, InputVO inCOCO, OutputVO outCOCO
+    ) throws WriteException {
         int numAttributes = inCOCO.getAttributes().size();
         int numElements = inCOCO.getElements().size();
 

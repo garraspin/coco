@@ -18,7 +18,7 @@
 					</td>
 					<td align="center">
 						<html:link action="/deleteProblem.do" paramId="id" paramName="problems" paramProperty="id">
-							<html:img src="../pages/images/eliminar.gif" titleKey="cocoList.delete" />
+							<html:img src="../static/eliminar.gif" titleKey="cocoList.delete" />
 						</html:link>
 					</td>
 				</tr>

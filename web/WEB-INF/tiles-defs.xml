@@ -5,32 +5,32 @@
         "http://struts.apache.org/dtds/tiles-config_1_1.dtd">
 
 <tiles-definitions>
-    <definition name="initPageDef" page="/WEB-INF/pages/defaultLayout.jsp">
-        <put name="header" value="/WEB-INF/pages/headerIn.jsp"/>
-        <put name="menu" value="/WEB-INF/pages/menuIn.jsp"/>
-        <put name="sidebar" value="/WEB-INF/pages/sidebarIn.jsp"/>
-        <put name="body" value="/WEB-INF/pages/init.jsp"/>
-        <put name="footer" value="/WEB-INF/pages/footerIn.jsp"/>
+    <definition name="initPageDef" page="/pages/defaultLayout.jsp">
+        <put name="header" value="/pages/headerIn.jsp"/>
+        <put name="menu" value="/pages/menuIn.jsp"/>
+        <put name="sidebar" value="/pages/sidebarIn.jsp"/>
+        <put name="body" value="/pages/init.jsp"/>
+        <put name="footer" value="/pages/footerIn.jsp"/>
     </definition>
 
     <definition name="inputPageDef" extends="initPageDef">
-        <put name="body" value="/WEB-INF/pages/cocoProblemIn.jsp"/>
+        <put name="body" value="/pages/cocoProblemIn.jsp"/>
     </definition>
 
     <definition name="xlsInPageDef" extends="initPageDef">
-        <put name="body" value="/WEB-INF/pages/xlsIn.jsp"/>
+        <put name="body" value="/pages/xlsIn.jsp"/>
     </definition>
 
-    <definition name="initOutPageDef" page="/WEB-INF/pages/defaultLayout.jsp">
-        <put name="header" value="/WEB-INF/pages/headerOut.jsp"/>
-        <put name="menu" value="/WEB-INF/pages/menuOut.jsp"/>
-        <put name="sidebar" value="/WEB-INF/pages/sidebarOut.jsp"/>
-        <put name="body" value="/WEB-INF/pages/initOut.jsp"/>
-        <put name="footer" value="/WEB-INF/pages/footerOut.jsp"/>
+    <definition name="initOutPageDef" page="/pages/defaultLayout.jsp">
+        <put name="header" value="/pages/headerOut.jsp"/>
+        <put name="menu" value="/pages/menuOut.jsp"/>
+        <put name="sidebar" value="/pages/sidebarOut.jsp"/>
+        <put name="body" value="/pages/initOut.jsp"/>
+        <put name="footer" value="/pages/footerOut.jsp"/>
     </definition>
 
     <definition name="outputPageDef" extends="initOutPageDef">
-        <put name="body" value="/WEB-INF/pages/cocoProblemOut.jsp"/>
+        <put name="body" value="/pages/cocoProblemOut.jsp"/>
     </definition>
 
     <definition name="loginPageDef" path="/pages/loginLayout.jsp">

@@ -2,47 +2,47 @@ package com.coco.action;
 
 import java.io.IOException;
 import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jxl.Cell;
-import jxl.Sheet;
-import jxl.Workbook;
-import jxl.read.biff.BiffException;
-
-import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionForward;
-import org.apache.struts.action.ActionMapping;
-import org.apache.struts.upload.FormFile;
-import org.apache.struts.validator.DynaValidatorForm;
-
 import com.coco.service.ICOCOService;
-import com.coco.struts.CustomBaseAction;
+import com.coco.struts.ActionUtils;
 import com.coco.struts.UserContainer;
 import com.coco.vo.AttributeVO;
 import com.coco.vo.BaseVO;
 import com.coco.vo.CellVO;
 import com.coco.vo.ElementVO;
 import com.coco.vo.InputVO;
+import jxl.Cell;
+import jxl.Sheet;
+import jxl.Workbook;
+import jxl.read.biff.BiffException;
+import org.apache.struts.action.Action;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
+import org.apache.struts.upload.FormFile;
+import org.apache.struts.validator.DynaValidatorForm;
 
-public class LoadXLS extends CustomBaseAction {
-	public ActionForward execute(ActionMapping mapping, ActionForm form,
-			HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+public class LoadXLS extends Action {
+    private final ActionUtils actionUtils = new ActionUtils();
+
+	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+                                 HttpServletResponse response
+    ) throws ServletException, IOException {
 		FormFile file = (FormFile) ((DynaValidatorForm) form).get("file");
-        InputVO inCOCO = readInCOCO(file);
+        ICOCOService serviceImpl = actionUtils.getCOCOService(servlet);
+        InputVO inCOCO = readInCOCO(file, serviceImpl);
 
 		// Salvar el nuevo problema
-		UserContainer existingContainer = getUserContainer(request);
-		ICOCOService serviceImpl = getCOCOService();
-		serviceImpl.setCOCOInput(inCOCO, existingContainer.getUserVO().getId());
+		UserContainer existingContainer = actionUtils.getUserContainer(request);
+        int userId = existingContainer.getUserVO().getId();
+        serviceImpl.setCOCOInput(inCOCO, userId);
 
 		// Obtener la nueva lista de problemas
-		existingContainer.getListCOCO().setProblems(
-				serviceImpl.getListCOCOProblems(existingContainer.getUserVO()
-						.getId()));
+        List<BaseVO> listCOCOProblems = serviceImpl.getListCOCOProblems(userId);
+        existingContainer.getListCOCO().setProblems(listCOCOProblems);
 
 		// Determinar el actual problema
 		existingContainer.getListCOCO().getActualCOCO().setInCOCO(inCOCO);
@@ -50,7 +50,7 @@ public class LoadXLS extends CustomBaseAction {
 		return mapping.findForward("initPage");
 	}
 
-    private InputVO readInCOCO(FormFile file) throws IOException {
+    private InputVO readInCOCO(FormFile file, ICOCOService cocoService) throws IOException {
         InputVO inCOCO = new InputVO();
         Workbook workbook = null;
         try {
@@ -66,7 +66,7 @@ public class LoadXLS extends CustomBaseAction {
         cell = sheet.getCell(1, 2);
         inCOCO.setDescription(cell.getContents());
         cell = sheet.getCell(1, 3);
-        inCOCO.setIdFunction(getIdFromName(cell.getContents(), getCOCOService().getFunctions()));
+        inCOCO.setIdFunction(getIdFromName(cell.getContents(), cocoService.getFunctions()));
         cell = sheet.getCell(1, 4);
         inCOCO.setNegativeAllowed(Boolean.parseBoolean(cell.getContents()));
         cell = sheet.getCell(1, 5);
@@ -127,8 +127,7 @@ public class LoadXLS extends CustomBaseAction {
             cell = sheet.getCell(i + 1, 11 + elements.size());
             attribute.setOptima(Double.parseDouble(cell.getContents()));
             cell = sheet.getCell(i + 1, 12 + elements.size());
-            attribute.setRankRule(getIdFromName(cell.getContents(),
-                    getCOCOService().getRankRules()));
+            attribute.setRankRule(getIdFromName(cell.getContents(), cocoService.getRankRules()));
         }
         workbook.close();
         return inCOCO;
