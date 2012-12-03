@@ -5,11 +5,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
-import com.coco.vo.AttributeVO;
-import com.coco.vo.BaseVO;
-import com.coco.vo.CellVO;
-import com.coco.vo.ElementVO;
-import com.coco.vo.Utils;
+import com.coco.MathUtils;
 
 public class InputVO extends BaseVO {
 
@@ -201,7 +197,7 @@ public class InputVO extends BaseVO {
 				comparator = new CellVO.MaximumComparator();
 				break;
 			case 3:
-				double average = Utils.average(lCells);
+				double average = MathUtils.average(lCells);
 				comparator = new CellVO.AverageComparator(average);
 				break;
 			}

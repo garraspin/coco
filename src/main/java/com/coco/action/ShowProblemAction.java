@@ -45,6 +45,10 @@ public class ShowProblemAction extends DispatchAction {
 
 	public ActionForward showOutput(ActionMapping mapping, ActionForm form, HttpServletRequest request,
                                     HttpServletResponse response) {
+        if (actionUtils.isNotLoggedIn(request)) {
+            return mapping.findForward("loginPage");
+        }
+
 		UserContainer existingContainer = actionUtils.getUserContainer(request);
 		ICOCOService serviceImpl = actionUtils.getCOCOService(servlet);
 

@@ -31,6 +31,10 @@ public class LoadXLS extends Action {
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
                                  HttpServletResponse response
     ) throws ServletException, IOException {
+        if (actionUtils.isNotLoggedIn(request)) {
+            return mapping.findForward("loginPage");
+        }
+
 		FormFile file = (FormFile) ((DynaValidatorForm) form).get("file");
         ICOCOService serviceImpl = actionUtils.getCOCOService(servlet);
         InputVO inCOCO = readInCOCO(file, serviceImpl);

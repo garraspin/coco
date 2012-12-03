@@ -80,8 +80,8 @@ public class COCOServiceImpl implements ICOCOService {
 		database.destroy();
 	}
 
-	public void setUser(UserVO user) {
-		database.setUser(user);
+	public void saveUser(UserVO user) {
+		database.saveUser(user);
 	}
 
 	public UserVO getUser(String email, String password) {

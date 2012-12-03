@@ -228,6 +228,15 @@
       <JAVADOC />
       <SOURCES />
     </library>
+    <library name="test-lib">
+      <CLASSES>
+        <root url="file://$PROJECT_DIR$/test-lib" />
+        <root url="file://$PROJECT_DIR$/test-lib" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+      <jarDirectory url="file://$PROJECT_DIR$/test-lib" recursive="false" />
+    </library>
   </component>
 </project>
 

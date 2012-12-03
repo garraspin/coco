@@ -22,6 +22,10 @@ public class DeleteProblemAction extends Action {
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
                                  HttpServletResponse response
     ) throws ServletException, IOException {
+        if (actionUtils.isNotLoggedIn(request)) {
+            return mapping.findForward("loginPage");
+        }
+
 		String idProblem = request.getParameter("id");
 
 		if (idProblem != null) {

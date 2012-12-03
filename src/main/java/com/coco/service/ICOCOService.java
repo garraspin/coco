@@ -30,7 +30,7 @@ public interface ICOCOService {
 
 	public UserVO authenticate(String email, String password);
 
-	public void setUser(UserVO user);
+	public void saveUser(UserVO user);
 
 	public UserVO getUser(String email, String password);
 

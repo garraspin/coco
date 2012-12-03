@@ -21,6 +21,10 @@ public class SaveProblemAction extends DispatchAction {
 
 	public ActionForward save(ActionMapping mapping, ActionForm form, HttpServletRequest request,
                               HttpServletResponse response) {
+        if (actionUtils.isNotLoggedIn(request)) {
+            return mapping.findForward("loginPage");
+        }
+
 		// Obtener el problema del formulario
 		InputVO inCOCO = (InputVO) ((DynaValidatorForm) form).get("inCOCO");
 		UserContainer existingContainer = actionUtils.getUserContainer(request);

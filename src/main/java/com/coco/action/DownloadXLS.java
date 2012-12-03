@@ -31,6 +31,10 @@ public class DownloadXLS extends Action {
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
                                  HttpServletResponse response
     ) throws ServletException, IOException {
+        if (actionUtils.isNotLoggedIn(request)) {
+            return mapping.findForward("loginPage");
+        }
+
         response.setContentType("application/vnd.ms-excel");
 		response.setHeader("Content-Disposition", "attachment; filename=sampleName.xls");
 

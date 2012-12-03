@@ -26,6 +26,10 @@ public class CreateProblemAction extends Action {
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
                                  HttpServletResponse response
     ) throws ServletException, IOException {
+        if (actionUtils.isNotLoggedIn(request)) {
+            return mapping.findForward("loginPage");
+        }
+
 		// Crear un problema nuevo
 		InputVO inCOCO = new InputVO();
 		inCOCO.addEmptyElements(NUM_INITIAL_ROWS);

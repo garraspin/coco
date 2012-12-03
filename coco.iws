@@ -6,7 +6,33 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33b6cc64-aacf-4d83-9338-ac0dc837a717" name="Default" comment="Clean up" />
+    <list default="true" id="33b6cc64-aacf-4d83-9338-ac0dc837a717" name="Default" comment="Clean up">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test-lib/postgresql-9.2-1002.jdbc4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/coco/data/UserMother.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/coco/integration/InputDataTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/coco/integration/LoginTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/coco/page/InputDataPage.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/coco/page/LoginPage.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/coco/page/Page.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/postgresql-9.1-901.jdbc3.jar" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/coco/vo/Utils.java" afterPath="$PROJECT_DIR$/src/main/java/com/coco/MathUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coco.iml" afterPath="$PROJECT_DIR$/coco.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coco.ipr" afterPath="$PROJECT_DIR$/coco.ipr" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coco.iws" afterPath="$PROJECT_DIR$/coco.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/coco/action/CreateProblemAction.java" afterPath="$PROJECT_DIR$/src/main/java/com/coco/action/CreateProblemAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/coco/action/DeleteProblemAction.java" afterPath="$PROJECT_DIR$/src/main/java/com/coco/action/DeleteProblemAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/coco/action/DownloadXLS.java" afterPath="$PROJECT_DIR$/src/main/java/com/coco/action/DownloadXLS.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/coco/action/LoadXLS.java" afterPath="$PROJECT_DIR$/src/main/java/com/coco/action/LoadXLS.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/coco/action/SaveProblemAction.java" afterPath="$PROJECT_DIR$/src/main/java/com/coco/action/SaveProblemAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/coco/action/ShowProblemAction.java" afterPath="$PROJECT_DIR$/src/main/java/com/coco/action/ShowProblemAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/coco/action/SubscribeAction.java" afterPath="$PROJECT_DIR$/src/main/java/com/coco/action/SubscribeAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/coco/service/COCOServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/coco/service/COCOServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/coco/service/CustomDatabase.java" afterPath="$PROJECT_DIR$/src/main/java/com/coco/service/CustomDatabase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/coco/service/ICOCOService.java" afterPath="$PROJECT_DIR$/src/main/java/com/coco/service/ICOCOService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/coco/vo/InputVO.java" afterPath="$PROJECT_DIR$/src/main/java/com/coco/vo/InputVO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/coco/vo/OutputVO.java" afterPath="$PROJECT_DIR$/src/main/java/com/coco/vo/OutputVO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index.jsp" afterPath="$PROJECT_DIR$/web/index.jsp" />
+    </list>
     <ignored path="coco.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -67,34 +93,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="struts-config.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/struts-config.xml">
-          <provider editor-type-id="com.intellij.struts.diagram.DiagramEditorProvider">
-            <state />
-          </provider>
+      <file leaf-file-name="LoginTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/coco/integration/LoginTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="54" selection-start="2408" selection-end="2408" vertical-scroll-proportion="-3.7843137">
+            <state line="60" column="0" selection-start="1841" selection-end="1841" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cocoList.jsp" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/pages/cocoList.jsp">
+      <file leaf-file-name="InputDataTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/coco/integration/InputDataTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="24" selection-start="554" selection-end="554" vertical-scroll-proportion="0.61403507">
+            <state line="45" column="26" selection-start="1324" selection-end="1324" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ActionUtils.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/coco/struts/ActionUtils.java">
+      <file leaf-file-name="InputDataPage.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/coco/page/InputDataPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="95" selection-start="1745" selection-end="1745" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="11" column="0" selection-start="243" selection-end="243" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginPage.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/coco/page/LoginPage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="49" column="0" selection-start="1187" selection-end="1187" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Page.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/coco/page/Page.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="5" selection-start="567" selection-end="567" vertical-scroll-proportion="0.5479452">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -119,22 +158,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/coco/struts/CustomDispatchAction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/coco/struts/CustomBaseAction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/coco/action/LoginAction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/coco/action/LocaleAction.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/struts-config.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/coco/action/LogoutAction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/coco/action/SubscribeAction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/coco/action/ShowProblemAction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/coco/struts/ActionUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/coco/action/CreateProblemAction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/coco/action/DeleteProblemAction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/coco/action/DownloadXLS.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/coco/action/LoadXLS.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/coco/action/SaveProblemAction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/coco/service/COCOServiceFactoryImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/coco/service/ICOCOServiceFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/coco/action/LoadXLS.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/coco/action/DownloadXLS.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/coco/action/DeleteProblemAction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/coco/action/CreateProblemAction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/coco/service/CustomDatabase.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/coco/integration/CreateProblemTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/coco/integration/InitialPageTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/coco/data/UserMother.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/coco/service/COCOServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/coco/integration/InputDataPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/coco/integration/LoginTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/coco/integration/InputDataTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/coco/page/LoginPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/coco/page/Page.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/coco/page/InputDataPage.java" />
       </list>
     </option>
   </component>
@@ -153,8 +192,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1680" />
-    <option name="height" value="1050" />
+    <option name="x" value="86" />
+    <option name="y" value="95" />
+    <option name="width" value="1394" />
+    <option name="height" value="878" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -594,16 +635,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -646,25 +677,23 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="coco" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="coco" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemId" value="page" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -679,6 +708,52 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="integration" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -722,11 +797,78 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="action" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/test/java/com/coco/integration" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="project.structure.proportion" value="0.15" />
@@ -752,11 +894,19 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/test-lib" />
       <recent name="$PROJECT_DIR$/web/WEB-INF" />
       <recent name="$PROJECT_DIR$/web/WEB-INF/lib" />
       <recent name="$PROJECT_DIR$/web" />
     </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.coco.integration" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.coco" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/test-lib" />
       <recent name="$PROJECT_DIR$/web" />
       <recent name="$PROJECT_DIR$/web/WEB-INF" />
       <recent name="$PROJECT_DIR$/web/WEB-INF/pages" />
@@ -768,6 +918,116 @@
       <option name="VM_PARAMETERS" value="" />
       <option name="USER_CFG_CLASS" />
       <option name="CONTEXT_PROVIDER" />
+      <method />
+    </configuration>
+    <configuration default="false" name="LoginTest.testLogin" type="TestNG" factoryName="TestNG" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.coco.integration.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="coco" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" value="com.coco.integration" />
+      <option name="MAIN_CLASS_NAME" value="com.coco.integration.LoginTest" />
+      <option name="METHOD_NAME" value="testLogin" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="58543" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="LoginTest" type="TestNG" factoryName="TestNG" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.coco.integration.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="coco" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" value="com.coco.integration" />
+      <option name="MAIN_CLASS_NAME" value="com.coco.integration.LoginTest" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="59508" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="com.coco.integration in coco" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.coco.integration.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="coco" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.coco.integration" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -1047,9 +1307,12 @@
         </option>
       </method>
     </configuration>
-    <list size="2">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Query Language Console.Default" />
-      <item index="1" class="java.lang.String" itemvalue="Tomcat Server.Coco" />
+      <item index="1" class="java.lang.String" itemvalue="TestNG.LoginTest.testLogin" />
+      <item index="2" class="java.lang.String" itemvalue="TestNG.LoginTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.com.coco.integration in coco" />
+      <item index="4" class="java.lang.String" itemvalue="Tomcat Server.Coco" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -1084,14 +1347,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
-    <editor active="false" />
+    <frame x="86" y="95" width="1394" height="878" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297604" sideWeight="0.67107004" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32912722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297604" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280757" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SBT Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Struts Assistant" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297414" sideWeight="0.67107004" order="2" side_tool="false" content_ui="tabs" />
@@ -1101,17 +1363,18 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280757" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24841213" sideWeight="0.19550858" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29238507" sideWeight="0.3685601" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21507353" sideWeight="0.5383806" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.46161935" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25928676" sideWeight="0.42007926" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.57992077" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280757" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280757" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1188,121 +1451,88 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/coco/action/LoginAction.java">
+    <entry file="file://$PROJECT_DIR$/web/META-INF/context.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="27" selection-start="1222" selection-end="1222" vertical-scroll-proportion="0.65466446">
-          <folding />
-        </state>
+        <state line="1" column="0" selection-start="39" selection-end="39" vertical-scroll-proportion="0.04385965" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/coco/action/LocaleAction.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/coco/vo/BaseVO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="53" column="0" selection-start="1005" selection-end="1005" vertical-scroll-proportion="0.33195877" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/coco/action/LogoutAction.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="746" selection-end="746" vertical-scroll-proportion="0.5564648">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/coco/data/UserMother.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="19" selection-start="232" selection-end="232" vertical-scroll-proportion="0.371134" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/coco/action/SubscribeAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="58" selection-start="1028" selection-end="1028" vertical-scroll-proportion="0.42553192">
-          <folding />
-        </state>
+        <state line="44" column="28" selection-start="1769" selection-end="1769" vertical-scroll-proportion="0.33195877" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/coco/action/ShowProblemAction.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/coco/service/COCOServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="8" selection-start="2208" selection-end="2208" vertical-scroll-proportion="0.5417349">
-          <folding />
-        </state>
+        <state line="82" column="20" selection-start="1741" selection-end="1741" vertical-scroll-proportion="0.46391752" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/coco/service/CustomDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="633" column="16" selection-start="17838" selection-end="17838" vertical-scroll-proportion="0.33195877" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/coco/MathUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="13" selection-start="84" selection-end="84" vertical-scroll-proportion="0.16494845" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/coco/action/CreateProblemAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="11" selection-start="683" selection-end="683" vertical-scroll-proportion="0.41558442">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
+        <state line="32" column="34" selection-start="1083" selection-end="1083" vertical-scroll-proportion="0.29896906" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/coco/action/DeleteProblemAction.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/coco/vo/InputVO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="11" selection-start="590" selection-end="590" vertical-scroll-proportion="0.12987013">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/coco/action/DownloadXLS.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="11" selection-start="878" selection-end="878" vertical-scroll-proportion="0.12987013">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/coco/action/LoadXLS.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="11" selection-start="882" selection-end="882" vertical-scroll-proportion="0.10822511">
-          <folding />
-        </state>
+        <state line="9" column="13" selection-start="169" selection-end="169" vertical-scroll-proportion="0.16494845" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/coco/action/SaveProblemAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="11" selection-start="620" selection-end="620" vertical-scroll-proportion="0.12987013">
+        <state line="28" column="9" selection-start="987" selection-end="987" vertical-scroll-proportion="0.6185567" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/coco/integration/LoginTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="0" selection-start="1841" selection-end="1841" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/coco/page/LoginPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="0" selection-start="1187" selection-end="1187" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/coco/page/InputDataPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="243" selection-end="243" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/coco/struts/COCOProblem.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/coco/integration/InputDataTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="16" selection-start="588" selection-end="588" vertical-scroll-proportion="0.73593074">
+        <state line="45" column="26" selection-start="1324" selection-end="1324" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/coco/service/ICOCOServiceFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/coco/page/Page.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="24" selection-start="87" selection-end="87" vertical-scroll-proportion="0.12371134">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/coco/struts/ActionUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="95" selection-start="1745" selection-end="1745" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/coco/service/COCOServiceFactoryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="59" selection-start="868" selection-end="868" vertical-scroll-proportion="0.24742268">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/struts-config.xml">
-      <provider editor-type-id="com.intellij.struts.diagram.DiagramEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="54" selection-start="2408" selection-end="2408" vertical-scroll-proportion="-3.7843137">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/pages/cocoList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="24" selection-start="554" selection-end="554" vertical-scroll-proportion="0.61403507">
+        <state line="22" column="5" selection-start="567" selection-end="567" vertical-scroll-proportion="0.5479452">
           <folding />
         </state>
       </provider>
@@ -1314,10 +1544,10 @@
         <settings>
           <artifact-editor>
             <show-content>
-              <type id="library" />
               <type id="artifact" />
-              <type id="jpa-descriptors" />
+              <type id="library" />
               <type id="javaee-facet-resources" />
+              <type id="jpa-descriptors" />
             </show-content>
           </artifact-editor>
           <last-edited>coco</last-edited>
@@ -1373,7 +1603,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

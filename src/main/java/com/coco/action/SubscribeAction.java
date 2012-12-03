@@ -42,7 +42,7 @@ public class SubscribeAction extends Action {
 			// Creamos el nuevo usuario
 			UserVO userVO = new UserVO(-1, name, surname, email, password);
 			// Lo guardamos en la bd
-			serviceImpl.setUser(userVO);
+			serviceImpl.saveUser(userVO);
 
 			// Metemos los datos de usuario en la sesión.
 			UserContainer existingContainer = actionUtils.getUserContainer(request);

@@ -2,6 +2,8 @@ package com.coco.vo;
 
 import java.util.List;
 
+import com.coco.MathUtils;
+
 public class OutputVO extends BaseVO {
 
 	// ID, name y description heredados de la clase BaseVO
@@ -106,7 +108,7 @@ public class OutputVO extends BaseVO {
 		Double[] importanceList = new Double[inCOCO.getAttributes().size()];
 
 		for (int i = 0; i < inCOCO.getAttributes().size(); i++) {
-			importanceList[i] = Utils.average(inCOCO.getAttributeCells(i));
+			importanceList[i] = MathUtils.average(inCOCO.getAttributeCells(i));
 		}
 		return importanceList;
 	}
@@ -115,7 +117,7 @@ public class OutputVO extends BaseVO {
 		Double[] sensivityList = new Double[inCOCO.getAttributes().size()];
 
 		for (int i = 0; i < inCOCO.getAttributes().size(); i++) {
-			sensivityList[i] = Utils.deviation(inCOCO.getAttributeCells(i));
+			sensivityList[i] = MathUtils.deviation(inCOCO.getAttributeCells(i));
 		}
 		return sensivityList;
 	}
@@ -147,7 +149,7 @@ public class OutputVO extends BaseVO {
 		// Calcular valores ideales
 		for (int i = 0; i < inCOCO.getAttributes().size(); i++) {
 			List<CellVO> lAttributeCells = inCOCO.getAttributeCells(i);
-			double average = com.coco.vo.Utils.average(lAttributeCells);
+			double average = MathUtils.average(lAttributeCells);
 
 			for (CellVO cell : lAttributeCells) {
 				double idealValue = cell.getValue()
@@ -162,7 +164,7 @@ public class OutputVO extends BaseVO {
 		setSensitivityObjects(calculateSensitivityObjects(inCOCO));
 
 		for (int i = 0; i < inCOCO.getAttributes().size(); i++) {
-			double average = com.coco.vo.Utils.average(inCOCO.getAttributeCells(i));
+			double average = MathUtils.average(inCOCO.getAttributeCells(i));
 
 			for (CellVO cell : inCOCO.getAttributeCells(i)) {
 				double idealValue = cell.getValue() - ((cell.getValue() - average) / 2);

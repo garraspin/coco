@@ -1,6 +1,7 @@
 package com.coco.service;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,10 +24,20 @@ import org.apache.log4j.Logger;
 
 public class CustomDatabase {
 
+    // TODO http://accu.org/index.php/journals/236
+
 	private static final Logger log = Logger.getLogger(CustomDatabase.class);
 
 	// Conexión JDBC a la base de datos
-	private static final Connection con = getConnection();
+	private final Connection con;
+
+    public CustomDatabase() {
+        con = getConnection();
+    }
+
+    public CustomDatabase(Connection con) {
+        this.con = con;
+    }
 
 	private static Connection getConnection() {
 		try {
@@ -42,18 +53,18 @@ public class CustomDatabase {
         return null;
 	}
 
-//	private static Connection getConnection2() {
-//		try {
-//			Class.forName("org.postgresql.Driver");
-//            return DriverManager.getConnection("jdbc:postgres://localhost:5432/cocoDB", "postgres", "admin");
-//        } catch (ClassNotFoundException s) {
-//            log.error("Class not found: " + s.toString());
-//        } catch (SQLException se) {
-//			log.error("Error when openning connection to database.");
-//			log.error(se.getMessage());
-//		}
-//        return null;
-//	}
+	public static Connection getConnectionFromDriver() {
+		try {
+			Class.forName("org.postgresql.Driver");
+            return DriverManager.getConnection("jdbc:postgresql://localhost:5432/cocoDB", "smunoz", "");
+        } catch (ClassNotFoundException s) {
+            log.error("Class not found: " + s.toString());
+        } catch (SQLException se) {
+			log.error("Error when openning connection to database.");
+			log.error(se.getMessage());
+		}
+        return null;
+	}
 
 	public void destroy() {
 		try {
@@ -620,7 +631,7 @@ public class CustomDatabase {
 		}
 	}
 
-	public void setUser(UserVO user) {
+	public void saveUser(UserVO user) {
 		try {
 			String query = "INSERT INTO users (id_user, user_name, user_surname, password, email)"
 					+ " VALUES (DEFAULT, ?, ?, ?, ?)";
@@ -668,4 +679,37 @@ public class CustomDatabase {
 
 		return user;
 	}
+
+    public boolean removeUser(int userId) {
+        boolean result = false;
+        try {
+            String query = "DELETE FROM users WHERE id_user = ?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, userId);
+
+            result = ps.execute();
+
+            ps.close();
+        } catch (SQLException se) {
+            log.error("Remove user: Error in database.", se);
+        } finally {
+            return result;
+        }
+    }
+    public boolean removeUser(String userName) {
+        boolean result = false;
+        try {
+            String query = "DELETE FROM users WHERE user_name = ?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, userName);
+
+            result = ps.execute();
+
+            ps.close();
+        } catch (SQLException se) {
+            log.error("Remove user: Error in database.", se);
+        } finally {
+            return result;
+        }
+    }
 }
