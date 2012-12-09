@@ -18,8 +18,20 @@ public class Page<T> {
         return (T) this;
     }
 
-    protected WebElement input(final String name) {
-        return driver.findElement(By.xpath("//input[@name='" + name + "']"));
+    protected Text text(final String name) {
+        return new Text(driver.findElement(By.xpath("//input[@name='" + name + "']")));
+    }
+
+    protected CheckBox checkBox(String name) {
+        return new CheckBox(driver.findElement(By.xpath("//input[@type='checkbox' and @name='" + name + "']")));
+    }
+
+    protected Select select(String name) {
+        return new Select(driver.findElement(By.xpath("//select[@name='" + name + "']")));
+    }
+
+    protected Button button(String name) {
+        return new Button(driver.findElement(By.xpath("//input[@name='" + name + "']")));
     }
 
 }

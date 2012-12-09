@@ -1,9 +1,7 @@
 package com.coco.page;
 
 import com.coco.vo.UserVO;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class LoginPage extends Page<LoginPage> {
 
@@ -12,39 +10,39 @@ public class LoginPage extends Page<LoginPage> {
     }
 
     public void setEmailLogin(String email) {
-        input("emailLogin").sendKeys(email);
+        text("emailLogin").setValue(email);
     }
 
     public void setPasswordLogin(String password) {
-        input("passwordLogin").sendKeys(password);
+        text("passwordLogin").setValue(password);
     }
 
     public void submitLogin() {
-        input("submitLogin").click();
+        button("submitLogin").click();
     }
 
     public void setNameSubscribe(String name) {
-        input("nameSubs").sendKeys(name);
+        text("nameSubs").setValue(name);
     }
 
     public void setSurnameSubscribe(String surname) {
-        input("surnameSubs").sendKeys(surname);
+        text("surnameSubs").setValue(surname);
     }
 
     public void setEmailSubscribe(String email) {
-        input("emailSubs").sendKeys(email);
+        text("emailSubs").setValue(email);
     }
 
     public void setPasswordSubscribe(String password) {
-        input("passwordSubs").sendKeys(password);
+        text("passwordSubs").setValue(password);
     }
 
     public void setRepasswordSubscribe(String repassword) {
-        input("repasswordSubs").sendKeys(repassword);
+        text("repasswordSubs").setValue(repassword);
     }
 
     public void submitSubscribe() {
-        input("submitSubs").click();
+        button("submitSubs").click();
     }
 
     public void loginUser(UserVO userVO) {

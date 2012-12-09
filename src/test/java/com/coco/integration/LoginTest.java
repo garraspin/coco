@@ -30,9 +30,7 @@ public class LoginTest {
     public void tearDown() throws Exception {
         driver.quit();
 
-        if (!db.removeUser(TOM.getId())) {
-            db.removeUser(TOM.getName());
-        }
+        boolean removedUser = db.removeUser(TOM.getId()) || db.removeUser(TOM.getName());
         db.destroy();
     }
 
