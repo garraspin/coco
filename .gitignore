@@ -1,2 +1,5 @@
 target/
 out/
+coco.ipr
+coco.iml
+coco.iws
