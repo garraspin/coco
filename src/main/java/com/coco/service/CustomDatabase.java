@@ -1,5 +1,6 @@
 package com.coco.service;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -47,8 +48,8 @@ public class CustomDatabase {
 		} catch (NamingException s) {
 			log.error("Class not found: " + s.toString());
 		} catch (SQLException se) {
-			log.error("Error when openning connection to database.");
-			log.error(se.getMessage());
+			log.error("Error when opening connection to database.");
+			log.error(se);
 		}
         return null;
 	}
@@ -60,8 +61,8 @@ public class CustomDatabase {
         } catch (ClassNotFoundException s) {
             log.error("Class not found: " + s.toString());
         } catch (SQLException se) {
-			log.error("Error when openning connection to database.");
-			log.error(se.getMessage());
+			log.error("Error when opening connection to database.");
+			log.error(se);
 		}
         return null;
 	}
@@ -153,7 +154,7 @@ public class CustomDatabase {
 			List<ElementVO> elements = inCOCO.getElements();
 
 			// Borrar elements_attributes
-			String query = "DELETE FROM elements_attributes WHERE id_attribute=?";
+			String query = "DELETE FROM elements_attributes WHERE id_attribute = ?";
 			PreparedStatement ps = con.prepareStatement(query);
             for (AttributeVO attribute : attributes) {
                 ps.setInt(1, attribute.getId());
@@ -201,10 +202,10 @@ public class CustomDatabase {
 			ps.setInt(1, inCOCO.getIdFunction());
 			ps.setInt(2, idUser);
 			ps.setString(3, inCOCO.getName());
-			ps.setDouble(4, 0.0);
+			ps.setBigDecimal(4, new BigDecimal(0));
 			ps.setString(5, inCOCO.getDescription());
 			ps.setBoolean(6, inCOCO.getNegativeAllowed());
-			ps.setDouble(7, inCOCO.getEquilibrium());
+			ps.setInt(7, inCOCO.getEquilibrium());
 			ps.setString(8, inCOCO.getAttributeY());
 			ps.executeUpdate();
             ps.close();
@@ -213,13 +214,13 @@ public class CustomDatabase {
 			int id_coco = getSequenceValue("sq_coco_problems");
 
 			// Insertar los atributos
-			query = "INSERT INTO attributes (id_attribute, id_rule, attribute_name, optima) "
-					+ "VALUES (DEFAULT, ?, ?, ?)";
+			query = "INSERT INTO attributes (id_attribute, id_rule, attribute_name, optima) " +
+                    "VALUES (DEFAULT, ?, ?, ?)";
 			ps = con.prepareStatement(query);
 			for (AttributeVO att : inCOCO.getAttributes()) {
 				ps.setInt(1, att.getRankRule());
 				ps.setString(2, att.getName());
-				ps.setDouble(3, att.getOptima());
+				ps.setBigDecimal(3, att.getOptima());
 				ps.executeUpdate();
 
 				// Guardar el id_attribute
@@ -228,13 +229,13 @@ public class CustomDatabase {
             ps.close();
 
 			// Insertar los elementos
-			query = "INSERT INTO elements (id_element, id_coco, element_name, y_value)"
-					+ "VALUES (DEFAULT, ?, ?, ?)";
+			query = "INSERT INTO elements (id_element, id_coco, element_name, y_value) " +
+                    "VALUES (DEFAULT, ?, ?, ?)";
 			ps = con.prepareStatement(query);
 			ps.setInt(1, id_coco);
 			for (ElementVO elto : inCOCO.getElements()) {
 				ps.setString(2, elto.getName());
-				ps.setDouble(3, elto.getYvalue());
+				ps.setBigDecimal(3, elto.getYvalue());
 				ps.executeUpdate();
 
 				// Guardar el id_element
@@ -243,8 +244,8 @@ public class CustomDatabase {
             ps.close();
 
 			// Insertar elements_attributes
-			query = "INSERT INTO elements_attributes (id_attribute, id_element, value, ranking, ideal_value)"
-					+ "VALUES (?, ?, ?, ?, ?)";
+			query = "INSERT INTO elements_attributes (id_attribute, id_element, value, ranking, ideal_value) " +
+                    "VALUES (?, ?, ?, ?, ?)";
 			ps = con.prepareStatement(query);
 			for (ElementVO elto : inCOCO.getElements()) {
 				for (int j = 0; j < inCOCO.getAttributes().size(); j++) {
@@ -252,9 +253,9 @@ public class CustomDatabase {
 
 					ps.setInt(1, inCOCO.getAttributes().get(j).getId());
 					ps.setInt(2, elto.getId());
-					ps.setDouble(3, cell.getValue());
+					ps.setBigDecimal(3, cell.getValue());
 					ps.setInt(4, cell.getRanking());
-					ps.setDouble(5, cell.getIdealValue());
+					ps.setBigDecimal(5, cell.getIdealValue());
 					ps.executeUpdate();
 				}
 			}
@@ -268,22 +269,20 @@ public class CustomDatabase {
 	public void setCOCOOutput(OutputVO outCOCO, InputVO inCOCO) {
 		try {
 			// Actualizar coco_problems
-			String query = "UPDATE coco_problems " + "SET coco_solution = ? "
-					+ "WHERE id_coco = ?";
+			String query = "UPDATE coco_problems SET coco_solution = ? WHERE id_coco = ?";
 			PreparedStatement ps = con.prepareStatement(query);
-			ps.setDouble(1, outCOCO.getSolution());
+			ps.setBigDecimal(1, outCOCO.getSolution());
 			ps.setInt(2, outCOCO.getId());
 			ps.executeUpdate();
 
 			// actualizar elements_attributes
-			query = "UPDATE elements_attributes " + "SET ideal_value = ? "
-					+ "WHERE (id_attribute = ?) AND (id_element = ?)";
+			query = "UPDATE elements_attributes SET ideal_value = ? WHERE (id_attribute = ?) AND (id_element = ?)";
 			ps = con.prepareStatement(query);
 			for (ElementVO elto : inCOCO.getElements()) {
 				for (AttributeVO att : inCOCO.getAttributes()) {
 					CellVO cell = elto.getCells().get(inCOCO.getAttributes().indexOf(att));
 
-					ps.setDouble(1, cell.getIdealValue());
+					ps.setBigDecimal(1, cell.getIdealValue());
 					ps.setInt(2, att.getId());
 					ps.setInt(3, elto.getId());
 					ps.executeUpdate();
@@ -424,12 +423,12 @@ public class CustomDatabase {
             ResultSet result = ps.executeQuery();
 
 			String name;
-			double yValue;
+			BigDecimal yValue;
 			int id;
 			while (result.next()) {
 				name = result.getString("element_name");
 				id = result.getInt("id_element");
-				yValue = result.getDouble("y_value");
+				yValue = result.getBigDecimal("y_value");
 
 				log.info("Element: " + name + yValue);
 
@@ -496,7 +495,7 @@ public class CustomDatabase {
 								idAttribute, 
 								result.getString("attribute_name"), 
 								"", 
-								result.getDouble("optima"), result.getInt("id_rule"));
+								result.getBigDecimal("optima"), result.getInt("id_rule"));
             ps.close();
 		} catch (SQLException se) {
 			log.error("Get attribute: Error in database.");
@@ -539,20 +538,19 @@ public class CustomDatabase {
 			}
 
 			// Obtener la lista de celdas para el elemento seleccionado
-			String query = "SELECT id_attribute, value, ranking, ideal_value "
-					+ "FROM elements_attributes " + "WHERE id_element = ? ";
+			String query = "SELECT * FROM elements_attributes WHERE id_element = ? ";
 
 			PreparedStatement ps = con.prepareStatement(query);
 			ps.setInt(1, element.getId());
             ResultSet result = ps.executeQuery();
 
-			double value, idealValue;
+			BigDecimal value, idealValue;
 			int ranking, attributeId, col;
 
 			while (result.next()) {
 				attributeId = result.getInt("id_attribute");
-				value = result.getDouble("value");
-				idealValue = result.getDouble("ideal_value");
+				value = result.getBigDecimal("value");
+				idealValue = result.getBigDecimal("ideal_value");
 				ranking = result.getInt("ranking");
 
 				col = indexOf(attributes, attributeId);
@@ -617,12 +615,9 @@ public class CustomDatabase {
 	public void setLastLoginUser(int idUser) {
 		try {
 			// actualizar coco_problems
-			String query = "UPDATE users " + "SET last_login = now() "
-					+ "WHERE id_user = ?";
-
+			String query = "UPDATE users SET last_login = now() WHERE id_user = ?";
 			PreparedStatement ps = con.prepareStatement(query);
 			ps.setInt(1, idUser);
-
 			ps.executeUpdate();
             ps.close();
 		} catch (SQLException se) {
@@ -633,8 +628,8 @@ public class CustomDatabase {
 
 	public void saveUser(UserVO user) {
 		try {
-			String query = "INSERT INTO users (id_user, user_name, user_surname, password, email)"
-					+ " VALUES (DEFAULT, ?, ?, ?, ?)";
+			String query = "INSERT INTO users (id_user, user_name, user_surname, password, email) " +
+                    "VALUES (DEFAULT, ?, ?, ?, ?)";
 
 			PreparedStatement ps = con.prepareStatement(query);
 			ps.setString(1, user.getName());
@@ -656,21 +651,19 @@ public class CustomDatabase {
 		UserVO user = null;
 
 		try {
-			String query = "SELECT (id_user, user_name, user_surname, password, email)"
-					+ "FROM users WHERE (id_user=?) AND (password=?)";
-
+			String query = "SELECT * FROM users WHERE (email=?) AND (password=?)";
 			PreparedStatement ps = con.prepareStatement(query);
 			ps.setString(1, email);
 			ps.setString(2, password);
 
             ResultSet result = ps.executeQuery();
-
 			if (result.next()) {
 				user = new UserVO(result.getInt("id_user"),
 						result.getString("user_name"),
 						result.getString("user_surname"),
 						result.getString("email"), result.getString("password"));
 			}
+
             ps.close();
 		} catch (SQLException se) {
 			log.error("Set user: Error in database.");
@@ -686,9 +679,7 @@ public class CustomDatabase {
             String query = "DELETE FROM users WHERE id_user = ?";
             PreparedStatement ps = con.prepareStatement(query);
             ps.setInt(1, userId);
-
             result = ps.execute();
-
             ps.close();
         } catch (SQLException se) {
             log.error("Remove user: Error in database.", se);
@@ -696,15 +687,14 @@ public class CustomDatabase {
             return result;
         }
     }
+
     public boolean removeUser(String userName) {
         boolean result = false;
         try {
             String query = "DELETE FROM users WHERE user_name = ?";
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, userName);
-
             result = ps.execute();
-
             ps.close();
         } catch (SQLException se) {
             log.error("Remove user: Error in database.", se);

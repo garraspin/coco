@@ -1,5 +1,6 @@
 package com.coco.vo;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import com.coco.MathUtils;
@@ -10,20 +11,20 @@ public class OutputVO extends BaseVO {
 
 	private static final long serialVersionUID = 3233797274725014009L;
 	// solución
-	private double solution;
+	private BigDecimal solution;
 	// Lista de los valores ideales
-	private Double[] idealYValues = null;
+	private BigDecimal[] idealYValues = null;
 	// Objetos con ranking igual a 1
 	private int[] bestObjects;
 	// Lista de importancia (media aritmética)
-	private Double[] importanceObjects = null;
+	private BigDecimal[] importanceObjects = null;
 	// Lista de sensibilidad (desviación estándar)
-	private Double[] sensitivityObjects = null;
+	private BigDecimal[] sensitivityObjects = null;
 
 	public OutputVO() {
 		super(-1, "", "");
 
-		solution = 0.0;
+		solution = new BigDecimal(0.0);
 		idealYValues = null;
 		bestObjects = null;
 		importanceObjects = null;
@@ -33,7 +34,7 @@ public class OutputVO extends BaseVO {
 	public OutputVO(int id, String name, String desc) {
 		super(id, name, desc);
 
-		solution = 0.0;
+		solution = new BigDecimal(0.0);
 		idealYValues = null;
 		bestObjects = null;
 		importanceObjects = null;
@@ -54,35 +55,35 @@ public class OutputVO extends BaseVO {
 		this.bestObjects = bestObjects;
 	}
 
-	public Double[] getIdealYValues() {
+	public BigDecimal[] getIdealYValues() {
 		return idealYValues;
 	}
 
-	public void setIdealYValues(Double[] idealYValues) {
+	public void setIdealYValues(BigDecimal[] idealYValues) {
 		this.idealYValues = idealYValues;
 	}
 
-	public Double[] getImportanceObjects() {
+	public BigDecimal[] getImportanceObjects() {
 		return importanceObjects;
 	}
 
-	public void setImportanceObjects(Double[] importanceObjects) {
+	public void setImportanceObjects(BigDecimal[] importanceObjects) {
 		this.importanceObjects = importanceObjects;
 	}
 
-	public Double[] getSensitivityObjects() {
+	public BigDecimal[] getSensitivityObjects() {
 		return sensitivityObjects;
 	}
 
-	public void setSensitivityObjects(Double[] sensitivityObjects) {
+	public void setSensitivityObjects(BigDecimal[] sensitivityObjects) {
 		this.sensitivityObjects = sensitivityObjects;
 	}
 
-	public double getSolution() {
+	public BigDecimal getSolution() {
 		return solution;
 	}
 
-	public void setSolution(double solution) {
+	public void setSolution(BigDecimal solution) {
 		this.solution = solution;
 	}
 
@@ -104,8 +105,8 @@ public class OutputVO extends BaseVO {
 		return bestObjects;
 	}
 
-	public Double[] calculateImportanceObjects(InputVO inCOCO) {
-		Double[] importanceList = new Double[inCOCO.getAttributes().size()];
+	public BigDecimal[] calculateImportanceObjects(InputVO inCOCO) {
+		BigDecimal[] importanceList = new BigDecimal[inCOCO.getAttributes().size()];
 
 		for (int i = 0; i < inCOCO.getAttributes().size(); i++) {
 			importanceList[i] = MathUtils.average(inCOCO.getAttributeCells(i));
@@ -113,30 +114,29 @@ public class OutputVO extends BaseVO {
 		return importanceList;
 	}
 
-	public Double[] calculateSensitivityObjects(InputVO inCOCO) {
-		Double[] sensivityList = new Double[inCOCO.getAttributes().size()];
+	public BigDecimal[] calculateSensitivityObjects(InputVO inCOCO) {
+		BigDecimal[] sensitivityList = new BigDecimal[inCOCO.getAttributes().size()];
 
 		for (int i = 0; i < inCOCO.getAttributes().size(); i++) {
-			sensivityList[i] = MathUtils.deviation(inCOCO.getAttributeCells(i));
+			sensitivityList[i] = MathUtils.deviation(inCOCO.getAttributeCells(i));
 		}
-		return sensivityList;
+		return sensitivityList;
 	}
 
-	public Double[] calculateIdealYValues(List<ElementVO> elements) {
+	public BigDecimal[] calculateIdealYValues(List<ElementVO> elements) {
 		// Devolver null si no hay elementos o celdas
 		if (elements == null || elements.get(0).getCells().isEmpty()) {
 			return null;
 		}
 
-		Double[] idealYValues = new Double[elements.size()];
+		BigDecimal[] idealYValues = new BigDecimal[elements.size()];
 		int i = 0;
 		for (ElementVO elto : elements) {
-			double idealYValue = 0.0;
+			BigDecimal idealYValue = new BigDecimal(0.0);
 
 			// Añadir todas las celdas para calcular el valor ideal
 			for (CellVO cell : elto.getCells()) {
-				double idealXValue = cell.getIdealValue();
-				idealYValue += idealXValue;
+                idealYValue.add(cell.getIdealValue());
 			}
 			// Añadir el valor ideal a los resultados
 			idealYValues[i] = idealYValue;
@@ -149,12 +149,11 @@ public class OutputVO extends BaseVO {
 		// Calcular valores ideales
 		for (int i = 0; i < inCOCO.getAttributes().size(); i++) {
 			List<CellVO> lAttributeCells = inCOCO.getAttributeCells(i);
-			double average = MathUtils.average(lAttributeCells);
+			BigDecimal average = MathUtils.average(lAttributeCells);
 
 			for (CellVO cell : lAttributeCells) {
-				double idealValue = cell.getValue()
-						- ((cell.getValue() - average) / 2);
-				cell.setIdealValue(idealValue);
+                cell.setIdealValue(
+                        cell.getValue().subtract((cell.getValue().subtract(average)).divide(new BigDecimal(2))));
 			}
 		}
 
@@ -164,23 +163,23 @@ public class OutputVO extends BaseVO {
 		setSensitivityObjects(calculateSensitivityObjects(inCOCO));
 
 		for (int i = 0; i < inCOCO.getAttributes().size(); i++) {
-			double average = MathUtils.average(inCOCO.getAttributeCells(i));
+			BigDecimal average = MathUtils.average(inCOCO.getAttributeCells(i));
 
 			for (CellVO cell : inCOCO.getAttributeCells(i)) {
-				double idealValue = cell.getValue() - ((cell.getValue() - average) / 2);
-				cell.setIdealValue(idealValue);
+                cell.setIdealValue(
+                        cell.getValue().subtract((cell.getValue().subtract(average)).divide(new BigDecimal(2))));
 			}
 		}
 
-		double solution = 0.0;
+		BigDecimal solution = new BigDecimal(0);
 		for (ElementVO elto : inCOCO.getElements()) {
-			double idealYValue = 0.0;
+			BigDecimal idealYValue = new BigDecimal(0);
 			for (CellVO cell : elto.getCells()) {
-				idealYValue += cell.getIdealValue();
+                idealYValue = idealYValue.add(cell.getIdealValue());
 			}
-			solution += Math.pow((elto.getYvalue() - idealYValue), 2);
+			solution = solution.add(elto.getYvalue().subtract(idealYValue).pow(2));
 		}
 
-		this.solution = Math.sqrt(solution);
+		this.solution = solution.multiply(solution);
 	}
 }

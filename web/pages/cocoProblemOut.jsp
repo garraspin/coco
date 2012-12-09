@@ -4,7 +4,6 @@
 <%@ taglib uri="/WEB-INF/struts-logic" prefix="logic"%>
 <%@ taglib uri="/WEB-INF/struts-nested" prefix="nested"%>
 
-<%@page import="com.coco.vo.InputVO"%>
 <%@page import="com.coco.vo.ElementVO"%>
 
 <nested:form action="/saveProblem.do?operation=save" method="post" enctype="multipart/form-data">

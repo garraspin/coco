@@ -1,5 +1,6 @@
 package com.coco.vo;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,16 +10,16 @@ import org.apache.commons.collections.list.LazyList;
 public class ElementVO extends BaseVO {
 	private static final long serialVersionUID = 2777959842275364599L;
 	// ID, name and description heredados de la clase BaseVO
-	private double yvalue;
+	private BigDecimal yvalue;
 	// lista de celdas (value, rank pos, ideal_value)
 	private List<CellVO> cells;
 
 	public ElementVO() {
-		this.yvalue = 0;
+		this.yvalue = new BigDecimal(0);
 		this.cells = CellVO.getNewCellList();
 	}
 
-	public ElementVO(Integer id, String name, String desc, double yvalue) {
+	public ElementVO(Integer id, String name, String desc, BigDecimal yvalue) {
 		super(id, name, desc);
 		this.yvalue = yvalue;
 		this.cells = CellVO.getNewCellList();
@@ -33,11 +34,11 @@ public class ElementVO extends BaseVO {
 		return LazyList.decorate(new ArrayList<ElementVO>(), factory);
 	}
 
-	public double getYvalue() {
+	public BigDecimal getYvalue() {
 		return yvalue;
 	}
 
-	public void setYvalue(double value) {
+	public void setYvalue(BigDecimal value) {
 		yvalue = value;
 	}
 
@@ -57,10 +58,10 @@ public class ElementVO extends BaseVO {
 		return total;
 	}
 
-	public double getTotalIdealValue() {
-		double total = 0.0;
+	public BigDecimal getTotalIdealValue() {
+		BigDecimal total = new BigDecimal(0);
 		for (CellVO cell : cells) {
-			total += cell.getIdealValue();
+			total = total.add(cell.getIdealValue());
 		}
 		return total;
 	}

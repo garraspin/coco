@@ -1,6 +1,7 @@
 package com.coco.vo;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -11,17 +12,17 @@ import org.apache.commons.collections.list.LazyList;
 public class CellVO extends BaseVO {
 	private static final long serialVersionUID = 8615998222221215386L;
 	// ID, name y description heredados de la clase BaseVO
-	private double value;
-	private double idealValue;
+	private BigDecimal value;
+	private BigDecimal idealValue;
 	private int ranking;
 
 	public CellVO() {
-		this.value = 0;
-		this.idealValue = 0;
+		this.value = new BigDecimal(0);
+		this.idealValue = new BigDecimal(0);
 		this.ranking = 0;
 	}
 
-	public CellVO(int id, String name, String desc, double value, double idealValue, int ranking) {
+	public CellVO(int id, String name, String desc, BigDecimal value, BigDecimal idealValue, int ranking) {
 		super(id, name, desc);
 
 		this.value = value;
@@ -38,11 +39,11 @@ public class CellVO extends BaseVO {
 		return LazyList.decorate(new ArrayList<CellVO>(), factory);
 	}
 
-	public double getIdealValue() {
+	public BigDecimal getIdealValue() {
 		return idealValue;
 	}
 
-	public void setIdealValue(double idealValue) {
+	public void setIdealValue(BigDecimal idealValue) {
 		this.idealValue = idealValue;
 	}
 
@@ -54,37 +55,37 @@ public class CellVO extends BaseVO {
 		this.ranking = ranking;
 	}
 
-	public double getValue() {
+	public BigDecimal getValue() {
 		return value;
 	}
 
-	public void setValue(double value) {
+	public void setValue(BigDecimal value) {
 		this.value = value;
 	}
 
 	public static class MinimumComparator implements Comparator<CellVO>, Serializable {
 		public int compare(CellVO o1, CellVO o2) {
-			return (int) (o2.value - o1.value);
+			return o2.value.subtract(o1.value).intValue();
 		}
 	}
 
 	public static class AverageComparator implements Comparator<CellVO>, Serializable {
-		private final double average;
+		private final BigDecimal average;
 
 		public int compare(CellVO o1, CellVO o2) {
-			double diff1 = Math.abs(o1.value - average);
-			double diff2 = Math.abs(o2.value - average);
-			return (int) (diff1 - diff2);
+			BigDecimal diff1 = o1.value.subtract(average).abs();
+			BigDecimal diff2 = o2.value.subtract(average).abs();
+			return diff1.subtract(diff2).intValue();
 		}
 
-		public AverageComparator(double average) {
+		public AverageComparator(BigDecimal average) {
 			this.average = average;
 		}
 	}
 
 	public static class MaximumComparator implements Comparator<CellVO>, Serializable {
 		public int compare(CellVO o1, CellVO o2) {
-			return (int) (o1.value - o2.value);
+			return o1.value.subtract(o2.value).intValue();
 		}
 	}
 }

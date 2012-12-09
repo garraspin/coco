@@ -1,6 +1,7 @@
 package com.coco.action;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -106,7 +107,7 @@ public class LoadXLS extends Action {
             while (true) {
                 cell = sheet.getCell(col, row);
                 CellVO cell1 = element.getCells().get(col - 1);
-                cell1.setValue(Double.parseDouble(cell.getContents()));
+                cell1.setValue(BigDecimal.valueOf(Double.parseDouble(cell.getContents())));
 
                 try {
                     sheet.getCell(col++ + 2, row).getContents();
@@ -115,7 +116,7 @@ public class LoadXLS extends Action {
                 }
             }
             cell = sheet.getCell(col, row);
-            element.setYvalue(Double.parseDouble(cell.getContents()));
+            element.setYvalue(BigDecimal.valueOf(Double.parseDouble(cell.getContents())));
 
             try {
                 if (sheet.getCell(col, ++row).getContents().equals("")) {
@@ -129,7 +130,7 @@ public class LoadXLS extends Action {
         for (int i = 0; i < attributes.size(); i++) {
             AttributeVO attribute = attributes.get(i);
             cell = sheet.getCell(i + 1, 11 + elements.size());
-            attribute.setOptima(Double.parseDouble(cell.getContents()));
+            attribute.setOptima(BigDecimal.valueOf(Double.parseDouble(cell.getContents())));
             cell = sheet.getCell(i + 1, 12 + elements.size());
             attribute.setRankRule(getIdFromName(cell.getContents(), cocoService.getRankRules()));
         }
