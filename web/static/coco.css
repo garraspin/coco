@@ -174,10 +174,10 @@ a:hover {
     background: #E7FFD6 url('../static/tick.png') center no-repeat;
     border: 1px solid #8CD76B;
 
-    background-position: 5px 50%;
+    background-position: 4px 50%;
     font-size: small;
     text-align: left;
-    padding: 5px 5px 5px 25px;
+    padding: 1px 1px 1px 25px;
     overflow: auto;
 }
 
@@ -186,10 +186,10 @@ a:hover {
     background: #E7F3FF url('../static/information.png') center no-repeat;
     border: 1px solid #7BA6D6;
 
-    background-position: 5px 50%;
+    background-position: 4px 50%;
     font-size: small;
     text-align: left;
-    padding: 5px 5px 5px 25px;
+    padding: 1px 1px 1px 25px;
     overflow: auto;
 }
 
@@ -198,10 +198,10 @@ a:hover {
     background: #fff6bf url('../static/error.png') center no-repeat;
     border: 1px solid #ffd324;
 
-    background-position: 5px 50%;
+    background-position: 4px 50%;
     font-size: small;
     text-align: left;
-    padding: 5px 5px 5px 25px;
+    padding: 1px 1px 1px 25px;
     overflow: auto;
 }
 
@@ -210,9 +210,9 @@ a:hover {
     background: #FFE7E7 url('../static/exclamation.png') center no-repeat;
     border: 1px solid #E77D7B;
 
-    background-position: 5px 50%;
+    background-position: 4px 50%;
     font-size: small;
     text-align: left;
-    padding: 5px 5px 5px 25px;
+    padding: 1px 1px 1px 25px;
     overflow: auto;
 }

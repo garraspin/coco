@@ -6,8 +6,9 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
+import org.apache.struts.validator.ValidatorForm;
 
-public class SubscribeForm extends ActionForm {
+public class SubscribeForm extends ValidatorForm {
 	private static final long serialVersionUID = 7237938687988182944L;
 	private String nameSubs = null;
 	private String surnameSubs = null;
@@ -53,34 +54,6 @@ public class SubscribeForm extends ActionForm {
 
 	public void setSurnameSubs(String surnameSubs) {
 		this.surnameSubs = surnameSubs;
-	}
-
-    @Override
-	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
-		ActionErrors errors = new ActionErrors();
-
-		if (getNameSubs() == null || getNameSubs().length() < 1) {
-			errors.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage("global.required", "name"));
-		}
-
-		if (getSurnameSubs() == null || getSurnameSubs().length() < 1) {
-			errors.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage("global.required", "surname"));
-		}
-
-		if (getPasswordSubs() == null || getPasswordSubs().length() < 1) {
-			errors.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage("global.required", "password"));
-		}
-
-		if (getRepasswordSubs() == null
-				|| !getRepasswordSubs().matches(getPasswordSubs())) {
-			errors.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage("error.password", "repassword"));
-		}
-
-		if (getEmailSubs() == null || getEmailSubs().length() < 1) {
-			errors.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage("global.required", "email"));
-		}
-
-		return errors;
 	}
 
     @Override

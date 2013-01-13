@@ -7,13 +7,8 @@
     <formset>
         <form name="loginForm">
             <field property="emailLogin" depends="required,email" >
-                <arg name="required" key="login.email"/>
-                <arg name="email" key="loginForm.emailLogin" resource="false" />
-                
-                <var>
-                    <var-name></var-name>
-                    <var-value></var-value>
-                </var>
+                <arg key="login.email" name="required" />
+                <arg key="words.this" name="email" />
             </field>
 
             <field property="passwordLogin" depends="required,minlength">
@@ -26,8 +21,29 @@
             </field>
         </form>
 
-        <!-- "Complex Validations with validwhen"
-            http://struts.apache.org/1.2.8/userGuide/dev_validator.html
-        -->
+        <form name="subscribeForm">
+            <field property="nameSubs" depends="required"> <arg key="login.name" /> </field>
+            <field property="surnameSubs" depends="required"> <arg key="login.surname" /> </field>
+            <field property="emailSubs" depends="required, email">
+                <arg key="login.email" name="required" />
+                <arg key="words.this" name="email" />
+            </field>
+            <field property="passwordSubs" depends="required,minlength">
+                <arg key="login.password" />
+                <arg name="minlength" key="${var:minlength}" resource="false" position="1" />
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>6</var-value>
+                </var>
+            </field>
+            <field property="repasswordSubs" depends="validwhen">
+                <arg key="errors.repassword.invalid" />
+                <var>
+                    <var-name>test</var-name>
+                    <var-value>(passwordSubs == *this*)</var-value>
+                </var>
+            </field>
+        </form>
+
     </formset>
 </form-validation>

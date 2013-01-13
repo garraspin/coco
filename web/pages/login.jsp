@@ -10,10 +10,10 @@
 	<p>&nbsp;</p>
 	<table>
 		<tr>
-			<td><bean:message key="login.email"/>&nbsp;:</td>			
+			<td><bean:message key="login.email"/>:</td>
 		</tr>
 		<tr>
-			<td><html:text size="22" property="emailLogin" value="" /></td>
+			<td><html:text size="22" property="emailLogin" /></td>
 		</tr>
         <html:messages id="err_email" property="emailLogin">
             <tr>
@@ -21,10 +21,10 @@
             </tr>
         </html:messages>
 		<tr>
-			<td><bean:message key="login.password"/>&nbsp;:</td>
+			<td><bean:message key="login.password"/>:</td>
 		</tr>
 		<tr>
-			<td><html:password size="22" property="passwordLogin" value="" /></td>
+			<td><html:password size="22" property="passwordLogin" /></td>
 		</tr>
         <html:messages id="err_password" property="passwordLogin">
             <tr>
