@@ -1,25 +1,36 @@
 <%@ taglib uri="/WEB-INF/struts-html" prefix="html"%>
 <%@ taglib uri="/WEB-INF/struts-bean" prefix="bean"%>
 
+<html:javascript formName="loginForm" />
+
 <html:form action="/login" method="post">
 	<h2><bean:message key="login.title" /></h2>
 	<p>&nbsp;</p>
 	<p><bean:message key="login.text" /></p>
 	<p>&nbsp;</p>
-	<table width="50%" cellspacing="0" cellpadding="0" border="0">
+	<table>
 		<tr>
 			<td><bean:message key="login.email"/>&nbsp;:</td>			
-			
 		</tr>
 		<tr>
 			<td><html:text size="22" property="emailLogin" value="" /></td>
 		</tr>
+        <html:messages id="err_email" property="emailLogin">
+            <tr>
+                <td class="msgError"><bean:write name="err_email"/></td>
+            </tr>
+        </html:messages>
 		<tr>
 			<td><bean:message key="login.password"/>&nbsp;:</td>
 		</tr>
 		<tr>
 			<td><html:password size="22" property="passwordLogin" value="" /></td>
 		</tr>
+        <html:messages id="err_password" property="passwordLogin">
+            <tr>
+                <td class="msgError"><bean:write name="err_password"/></td>
+            </tr>
+        </html:messages>
 		<tr>
 			<td colspan="2" align="right">
 				<html:submit property="submitLogin">

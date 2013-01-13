@@ -15,21 +15,19 @@
 		<link href="../static/coco.css" rel="stylesheet" type="text/css">
 	</head>	
 	<body>
-		<html:errors/>
-		
 		<div id="header">
-			<table width="100%" cellpadding="0" cellspacing="0">
+			<table width="100%" cellpadding="0" cellspacing="0" class="rounded-upleft">
 				<tr>
 					<td width="75%">
 						<h1><bean:message key="global.title" /></h1>
 					</td>
-					<td align="center">
+					<td align="center" class="rounded-upright">
 						<tiles:insert attribute="flags" />
 					</td>
 				</tr>
 			</table>
 		</div>
-		
+
 		<div id="content">
 			<div id="columnA">
 				<tiles:insert attribute="subscribe" />

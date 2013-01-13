@@ -3,7 +3,31 @@
 <!DOCTYPE form-validation PUBLIC
         "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.3.0//EN"
         "http://jakarta.apache.org/commons/dtds/validator_1_3_0.dtd">
-
-
 <form-validation>
+    <formset>
+        <form name="loginForm">
+            <field property="emailLogin" depends="required,email" >
+                <arg name="required" key="login.email"/>
+                <arg name="email" key="loginForm.emailLogin" resource="false" />
+                
+                <var>
+                    <var-name></var-name>
+                    <var-value></var-value>
+                </var>
+            </field>
+
+            <field property="passwordLogin" depends="required,minlength">
+                <arg key="login.password" />
+                <arg name="minlength" key="${var:minlength}" resource="false" position="1" />
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>3</var-value>
+                </var>
+            </field>
+        </form>
+
+        <!-- "Complex Validations with validwhen"
+            http://struts.apache.org/1.2.8/userGuide/dev_validator.html
+        -->
+    </formset>
 </form-validation>

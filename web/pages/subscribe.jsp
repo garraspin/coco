@@ -2,7 +2,6 @@
 <%@ taglib uri="/WEB-INF/struts-bean" prefix="bean"%>
 
 <html:form action="/subscribe" method="post">
-
 	<h2><bean:message key="subscribe.title" /></h2>
 	<p>&nbsp;</p>
 	<p><bean:message key="subscribe.text" /></p>

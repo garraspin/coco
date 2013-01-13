@@ -13,12 +13,12 @@ public class ActionUtils {
 
     private final Logger log = Logger.getLogger(ActionUtils.class);
 
-    // Obtener la instancia del objeto aplicación por el nombre
+    // Obtener la instancia del objeto de la aplicación por el nombre
     protected <T> T getApplicationObject(ActionServlet servlet, String attrName) {
         return (T) servlet.getServletContext().getAttribute(attrName);
     }
 
-    // Obtener la instancia del objeto sesión por el nombre
+    // Obtener la instancia del objeto de la sesión por el nombre
     protected <T> T getSessionObject(HttpServletRequest req, String attrName) {
         HttpSession session = req.getSession(false);
         return session == null ? null : (T) session.getAttribute(attrName);
@@ -49,8 +49,7 @@ public class ActionUtils {
             return factory.createService();
         } catch (Exception ex) {
             log.error("Error trying to create the service ...", ex);
+            return null;
         }
-
-        return null;
     }
 }

@@ -43,9 +43,9 @@
     <action-mappings>
         <action path="/locale" name="localeForm" scope="request" type="com.coco.action.LocaleAction"/>
         <action path="/loginPage" forward="loginPageDef"/>
-        <action path="/login" name="loginForm" scope="session" type="com.coco.action.LoginAction" validate="true"/>
-        <action path="/logout" type="com.coco.action.LogoutAction"/>
+        <action path="/login" name="loginForm" scope="session" type="com.coco.action.LoginAction" validate="true" input="/loginPage.do"/>
         <action path="/subscribe" name="subscribeForm" scope="request" type="com.coco.action.SubscribeAction" validate="true"/>
+        <action path="/logout" type="com.coco.action.LogoutAction"/>
         <action path="/createProblem" name="problemForm" scope="request" type="com.coco.action.CreateProblemAction"/>
         <action path="/saveProblem" name="problemForm" parameter="operation" scope="request" type="com.coco.action.SaveProblemAction"/>
         <action path="/showProblem" name="problemForm" parameter="operation" scope="request" type="com.coco.action.ShowProblemAction"/>

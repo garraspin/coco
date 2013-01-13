@@ -55,39 +55,35 @@ public class SubscribeForm extends ActionForm {
 		this.surnameSubs = surnameSubs;
 	}
 
-	public ActionErrors validate(ActionMapping mapping,
-			HttpServletRequest request) {
+    @Override
+	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
 		ActionErrors errors = new ActionErrors();
 
 		if (getNameSubs() == null || getNameSubs().length() < 1) {
-			errors.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage(
-					"global.required", "name"));
+			errors.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage("global.required", "name"));
 		}
 
 		if (getSurnameSubs() == null || getSurnameSubs().length() < 1) {
-			errors.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage(
-					"global.required", "surname"));
+			errors.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage("global.required", "surname"));
 		}
 
 		if (getPasswordSubs() == null || getPasswordSubs().length() < 1) {
-			errors.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage(
-					"global.required", "password"));
+			errors.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage("global.required", "password"));
 		}
 
 		if (getRepasswordSubs() == null
 				|| !getRepasswordSubs().matches(getPasswordSubs())) {
-			errors.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage(
-					"error.password", "repassword"));
+			errors.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage("error.password", "repassword"));
 		}
 
 		if (getEmailSubs() == null || getEmailSubs().length() < 1) {
-			errors.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage(
-					"global.required", "email"));
+			errors.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage("global.required", "email"));
 		}
 
 		return errors;
 	}
 
+    @Override
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
 		this.nameSubs = null;
 		this.surnameSubs = null;

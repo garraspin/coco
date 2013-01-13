@@ -4,10 +4,10 @@
 <%@ taglib uri="/WEB-INF/struts-nested" prefix="nested"%>
 
 
-<nested:form action="/saveProblem.do?operation=save" method="post"
-	enctype="multipart/form-data">
+<nested:form action="/saveProblem.do?operation=save" method="post" enctype="multipart/form-data">
 	<nested:nest property="inCOCO">
 		<nested:hidden property="id" />
+
 		<table id="rounded-corner">
 			<thead>
 				<!-- 1. title -->

@@ -30,17 +30,14 @@ public class COCOServiceImpl implements ICOCOService {
 	}
 
 	public List<BaseVO> getListCOCOProblems(int idUser) {
-
 		return database.getListCOCOProblems(idUser);
 	}
 
 	public InputVO getCOCOInput(String idCOCO) {
-
 		return database.getCOCOInput(Integer.valueOf(idCOCO));
 	}
 
 	public OutputVO getCOCOOutput(String idCOCO) {
-
 		return new OutputVO(getCOCOInput(idCOCO));
 	}
 

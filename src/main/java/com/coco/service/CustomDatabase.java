@@ -128,9 +128,9 @@ public class CustomDatabase {
             ps.close();
             
 			List<ElementVO> elements = getElements(id);
-			List<AttributeVO> attributes = getAttributes(id, elements);
+			List<AttributeVO> attributes = getAttributes(elements);
 			for (ElementVO elto : elements) {
-				elto.setCells(getMatrixRow(id, elto, attributes));
+				elto.setCells(getMatrixRow(elto, attributes));
 			}
 
 			cocoInput = new InputVO(id, name, description, function, negativeAllowed, equilibrium, yAttribute);
@@ -422,13 +422,10 @@ public class CustomDatabase {
 			ps.setInt(1, idCOCO);
             ResultSet result = ps.executeQuery();
 
-			String name;
-			BigDecimal yValue;
-			int id;
 			while (result.next()) {
-				name = result.getString("element_name");
-				id = result.getInt("id_element");
-				yValue = result.getBigDecimal("y_value");
+				String name = result.getString("element_name");
+				int id = result.getInt("id_element");
+				BigDecimal yValue = result.getBigDecimal("y_value");
 
 				log.info("Element: " + name + yValue);
 
@@ -443,7 +440,7 @@ public class CustomDatabase {
 		return elements;
 	}
 
-	public List<AttributeVO> getAttributes(int idCOCO, List<ElementVO> elements) {
+	public List<AttributeVO> getAttributes(List<ElementVO> elements) {
 		List<AttributeVO> attributes = new ArrayList<AttributeVO>();
 
 		try {
@@ -461,9 +458,8 @@ public class CustomDatabase {
 
             ResultSet result = ps.executeQuery();
 
-			int id;
 			while (result.next()) {
-				id = result.getInt("id_attribute");
+				int id = result.getInt("id_attribute");
 				attributes.add(getAttribute(id));
 			}
             ps.close();
@@ -529,7 +525,7 @@ public class CustomDatabase {
 		return nameRule;
 	}
 
-	public List<CellVO> getMatrixRow(int idCOCO, ElementVO element,	List<AttributeVO> attributes) {
+	public List<CellVO> getMatrixRow(ElementVO element, List<AttributeVO> attributes) {
 		List<CellVO> matrixRow = CellVO.getNewCellList();
 
 		try {
@@ -544,16 +540,12 @@ public class CustomDatabase {
 			ps.setInt(1, element.getId());
             ResultSet result = ps.executeQuery();
 
-			BigDecimal value, idealValue;
-			int ranking, attributeId, col;
-
 			while (result.next()) {
-				attributeId = result.getInt("id_attribute");
-				value = result.getBigDecimal("value");
-				idealValue = result.getBigDecimal("ideal_value");
-				ranking = result.getInt("ranking");
-
-				col = indexOf(attributes, attributeId);
+				int attributeId = result.getInt("id_attribute");
+				BigDecimal value = result.getBigDecimal("value");
+				BigDecimal idealValue = result.getBigDecimal("ideal_value");
+				int ranking = result.getInt("ranking");
+				int col = indexOf(attributes, attributeId);
 
 				log.info(element.getName() + "(" + col + "): " + value);
 
