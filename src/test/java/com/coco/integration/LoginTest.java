@@ -43,6 +43,12 @@ public class LoginTest {
     }
 
     @Test
+    public void testUnsuccessfulLogin() throws Exception {
+
+
+    }
+
+    @Test
     public void testSubscribe() throws Exception {
         LoginPage loginPage = new LoginPage(driver).load();
 

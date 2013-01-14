@@ -37,7 +37,7 @@
                 </var>
             </field>
             <field property="repasswordSubs" depends="validwhen">
-                <arg key="errors.repassword.invalid" />
+                <msg key="errors.repassword.invalid" name="validwhen" />
                 <var>
                     <var-name>test</var-name>
                     <var-value>(passwordSubs == *this*)</var-value>

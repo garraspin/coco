@@ -12,9 +12,11 @@ import com.coco.vo.BaseVO;
 import com.coco.vo.UserVO;
 import org.apache.log4j.Logger;
 import org.apache.struts.action.Action;
+import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
 
 public class LoginAction extends Action {
 
@@ -37,7 +39,10 @@ public class LoginAction extends Action {
 
 		UserVO userVO = serviceImpl.authenticate(email, password);
 		if (userVO == null) {
-			return mapping.findForward("loginPage");
+            ActionErrors errors = new ActionErrors();
+            errors.add("loginInvalid", new ActionMessage("login.invalid"));
+            saveErrors(request, errors);
+			return mapping. findForward("loginPage");
 		} else {
 			// Poner el login de usuario en UserContainer
 			UserContainer existingContainer = actionUtils.getUserContainer(request);

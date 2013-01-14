@@ -5,11 +5,15 @@
 
 <html:form action="/login" method="post">
 	<h2><bean:message key="login.title" /></h2>
-	<p>&nbsp;</p>
-	<p><bean:message key="login.text" /></p>
-	<p>&nbsp;</p>
+	<h4><bean:message key="login.text" /></h4>
+
 	<table>
-		<tr>
+        <html:messages id="loginInvalid" property="loginInvalid">
+            <tr>
+                <td class="msgWarn"><bean:write name="loginInvalid" /></td>
+            </tr>
+        </html:messages>
+        <tr>
 			<td><bean:message key="login.email"/>:</td>
 		</tr>
 		<tr>
