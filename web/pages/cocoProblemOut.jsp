@@ -119,8 +119,7 @@
 		<tr>
 			<td><bean:message key="coco.importantlist.title" /></td>
 			
-			<nested:iterate property="outCOCO.importanceObjects" 
-			id="importantObj" type="java.lang.Double">
+			<nested:iterate property="outCOCO.importanceObjects" id="importantObj">
 				<td><%= df.format(importantObj) %></td>
 			</nested:iterate>
 			
@@ -130,8 +129,7 @@
 		<tr>
 			<td><bean:message key="coco.sensitivitylist.title" /></td>
 			
-			<nested:iterate property="outCOCO.sensitivityObjects" 
-			id="sensitivityObj" type="java.lang.Double">
+			<nested:iterate property="outCOCO.sensitivityObjects" id="sensitivityObj">
 				<td><%= df.format(sensitivityObj) %></td>
 			</nested:iterate>
 			

@@ -6,6 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.coco.vo.UserVO;
+import com.coco.widget.Select;
+import com.coco.widget.Text;
 import com.google.common.base.Function;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,6 +26,12 @@ public class InputDataPage extends Page<InputDataPage> {
     public InputDataPage load() {
         new LoginPage(driver).load().loginUser(user);
         return this;
+    }
+
+    @Override
+    public boolean isAvailable() {
+        List<WebElement> headers = driver.findElements(By.xpath("id('header')/h2"));
+        return !headers.isEmpty() && headers.get(0).getText().equals("Input data page");
     }
 
     public void clickCreateProblemMenuLink() {

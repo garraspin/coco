@@ -1,13 +1,14 @@
 package com.coco.integration;
 
+import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 import com.coco.data.UserMother;
+import com.coco.page.InputDataPage;
 import com.coco.page.LoginPage;
-import com.coco.service.CustomDatabase;
+import com.coco.database.CustomDatabase;
 import com.coco.vo.UserVO;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
@@ -22,7 +23,7 @@ public class LoginTest {
 
     @BeforeMethod
     public void setUp() throws Exception {
-        db = new CustomDatabase(CustomDatabase.getConnectionFromDriver());
+        db = new CustomDatabase(CustomDatabase.getDataSource());
         driver = new FirefoxDriver();
     }
 
@@ -30,8 +31,9 @@ public class LoginTest {
     public void tearDown() throws Exception {
         driver.quit();
 
-        boolean removedUser = db.removeUser(TOM.getId()) || db.removeUser(TOM.getName());
-        db.destroy();
+        if (!db.removeUser(TOM.getId())) {
+            db.removeUser(TOM.getName());
+        }
     }
 
     @Test
@@ -39,13 +41,19 @@ public class LoginTest {
         db.saveUser(TOM);
         new LoginPage(driver).load().loginUser(TOM);
 
-        assertThat(driver.findElement(By.xpath("//.[@id='header']/h2")).getText(), is("Input data page"));
+        assertThat(new InputDataPage(driver, TOM).isAvailable(), is(true));
     }
 
     @Test
     public void testUnsuccessfulLogin() throws Exception {
+        LoginPage loginPage = new LoginPage(driver).load();
 
+        loginPage.submitLogin();
+        assertThat(loginPage.errorMessages(), contains("E-mail is required.", "Password is required."));
 
+        loginPage.loginUser(TOM);
+        assertThat(loginPage.isAvailable(), is(true));
+        assertThat(loginPage.warningMessages(), contains("The e-mail and password combination is not valid"));
     }
 
     @Test
@@ -59,6 +67,16 @@ public class LoginTest {
         loginPage.setRepasswordSubscribe(TOM.getPassword());
         loginPage.submitSubscribe();
 
-        assertThat(driver.findElement(By.xpath("//.[@id='header']/h2")).getText(), is("Input data page"));
+        assertThat(new InputDataPage(driver, TOM).isAvailable(), is(true));
+    }
+
+    @Test
+    public void testUnsuccessfulSubscribe() throws Exception {
+        LoginPage loginPage = new LoginPage(driver).load();
+        loginPage.submitSubscribe();
+
+        assertThat(loginPage.errorMessages(), contains(
+            "Name is required.", "Surname is required.", "E-mail is required.", "Password is required."
+        ));
     }
 }

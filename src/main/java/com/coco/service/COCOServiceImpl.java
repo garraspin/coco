@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 
+import com.coco.database.CustomDatabase;
 import com.coco.vo.BaseVO;
 import com.coco.vo.InputVO;
 import com.coco.vo.OutputVO;
@@ -74,7 +75,7 @@ public class COCOServiceImpl implements ICOCOService {
 	}
 
 	public void destroy() {
-		database.destroy();
+        // nada
 	}
 
 	public void saveUser(UserVO user) {

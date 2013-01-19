@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 
-<Context docBase="coco" path="/" reloadable="true">
+<Context docBase="coco" path="/" reloadable="true" >
     <Resource auth="Container"
               driverClassName="org.postgresql.Driver"
               maxActive="10"

@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 import com.coco.data.UserMother;
 import com.coco.page.InputDataPage;
-import com.coco.service.CustomDatabase;
+import com.coco.database.CustomDatabase;
 import com.coco.vo.BaseVO;
 import com.coco.vo.UserVO;
 import org.openqa.selenium.WebDriver;
@@ -24,7 +24,7 @@ public class InputDataTest {
 
     @BeforeMethod
     public void setUp() throws Exception {
-        db = new CustomDatabase(CustomDatabase.getConnectionFromDriver());
+        db = new CustomDatabase(CustomDatabase.getDataSource());
         driver = new FirefoxDriver();
 
         db.saveUser(TOM);
@@ -38,7 +38,6 @@ public class InputDataTest {
             db.deleteCOCOInput(db.getCOCOInput(baseVO.getId()));
         }
         db.removeUser(TOM.getId());
-        db.destroy();
     }
 
     @Test

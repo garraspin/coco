@@ -1,12 +1,18 @@
 package com.coco.page;
 
 import com.coco.vo.UserVO;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class LoginPage extends Page<LoginPage> {
 
     public LoginPage(WebDriver driver) {
         super(driver);
+    }
+
+    @Override
+    public boolean isAvailable() {
+        return !driver.findElements(By.name("loginForm")).isEmpty();
     }
 
     public void setEmailLogin(String email) {

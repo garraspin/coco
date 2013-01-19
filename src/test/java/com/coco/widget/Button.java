@@ -1,4 +1,4 @@
-package com.coco.page;
+package com.coco.widget;
 
 import org.openqa.selenium.WebElement;
 
