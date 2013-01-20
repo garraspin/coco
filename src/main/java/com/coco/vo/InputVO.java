@@ -10,7 +10,7 @@ import com.coco.MathUtils;
 
 public class InputVO extends BaseVO {
 
-	// ID, name y description heredados de la clase BaseVO
+	// ID, name y description heredados de BaseVO
 
 	private static final long serialVersionUID = -5907310327893063524L;
 	// Función utilizada para obtener la solución

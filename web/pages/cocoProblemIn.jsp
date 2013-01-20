@@ -5,6 +5,8 @@
 
 
 <nested:form action="/saveProblem.do?operation=save" method="post" enctype="multipart/form-data">
+    <%! private final java.text.DecimalFormat df = new java.text.DecimalFormat("###.####"); %>
+
 	<nested:nest property="inCOCO">
 		<nested:hidden property="id" />
 
@@ -83,19 +85,17 @@
 					<td><nested:text size="10" property="attributeY" /></td>
 				</tr>
 				<!-- Element names , elementAttributesValues and YValues -->
-				<nested:iterate property="elements" indexId="idElements"
-					type="com.coco.vo.ElementVO">
+				<nested:iterate property="elements" indexId="idElements" type="com.coco.vo.ElementVO" id="element">
 					<tr>
 						<td><nested:text size="10" property="name" /></td>
 						
 						<nested:hidden property="id" />
 						
-						<nested:iterate property="cells" type="com.coco.vo.CellVO">
-							<td><nested:text size="10" property="value" /></td>
+						<nested:iterate property="cells" type="com.coco.vo.CellVO" id="cell">
+							<td><nested:text size="10" property="value" value="<%= df.format(cell.getValue()) %>" /></td>
 						</nested:iterate>
 						
-						<td>&nbsp;</td>
-						<td><nested:text size="10" property="yvalue" /></td>
+						<td><nested:text size="10" property="yvalue" value="<%= df.format(element.getYvalue()) %>" /></td>
 					</tr>
 				</nested:iterate>
 				<tr>
@@ -113,8 +113,8 @@
 				<!-- 8. rankRules and Optimal values -->
 				<tr>
 					<td><bean:message key="coco.optimalTitle" /></td>
-					<nested:iterate property="attributes">
-						<td><nested:text size="10" property="optima" /></td>
+					<nested:iterate property="attributes" type="com.coco.vo.AttributeVO" id="attribute">
+						<td><nested:text size="10" property="optima" value="<%= df.format(attribute.getOptima()) %>" /></td>
 					</nested:iterate>
 					<td colspan="2"></td>
 				</tr>
