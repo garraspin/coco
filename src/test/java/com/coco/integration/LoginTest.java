@@ -4,10 +4,11 @@ import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
+import com.coco.data.DirectDataSource;
 import com.coco.data.UserMother;
+import com.coco.database.CustomDatabase;
 import com.coco.page.InputDataPage;
 import com.coco.page.LoginPage;
-import com.coco.database.CustomDatabase;
 import com.coco.vo.UserVO;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -23,7 +24,7 @@ public class LoginTest {
 
     @BeforeMethod
     public void setUp() throws Exception {
-        db = new CustomDatabase(CustomDatabase.getDataSource());
+        db = new CustomDatabase(new DirectDataSource());
         driver = new FirefoxDriver();
     }
 

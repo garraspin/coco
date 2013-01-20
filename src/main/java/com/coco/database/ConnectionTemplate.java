@@ -29,8 +29,7 @@ public class ConnectionTemplate {
 
             t = template.execute(con);
         } catch (SQLException e) {
-            log.error("Error when opening connection to database.");
-            log.error(e);
+            log.error("Error when opening connection to database.", e);
         }
 
         try {
@@ -38,8 +37,7 @@ public class ConnectionTemplate {
                 con.close();
             }
         } catch (SQLException e) {
-            log.error("Error when closing connection to database.");
-            log.error(e);
+            log.error("Error when closing connection to database.", e);
         }
 
         return t;

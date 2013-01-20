@@ -22,6 +22,7 @@ import com.coco.vo.InputVO;
 import com.coco.vo.OutputVO;
 import com.coco.vo.UserVO;
 import org.apache.log4j.Logger;
+import org.apache.taglibs.standard.tag.common.sql.DataSourceWrapper;
 
 public class CustomDatabase {
 
@@ -31,20 +32,20 @@ public class CustomDatabase {
 	private final DataSource dataSource;
 
     public CustomDatabase() {
-        dataSource = getDataSource();
+        this.dataSource = getDataSource();
     }
 
     public CustomDatabase(DataSource dataSource) {
         this.dataSource = dataSource;
     }
 
-	public static DataSource getDataSource() {
+	private static DataSource getDataSource() {
 		try {
 			Context initCtx = new InitialContext();
 			DataSource ds = (DataSource) initCtx.lookup(COCODB_CONTEXT);
 			return ds;
 		} catch (NamingException s) {
-			log.error("Class not found: " + s.toString());
+			log.error("Class not found", s);
 		}
         return null;
 	}
@@ -54,10 +55,9 @@ public class CustomDatabase {
 			Class.forName("org.postgresql.Driver");
             return DriverManager.getConnection("jdbc:postgresql://localhost:5432/cocoDB", "smunoz", "");
         } catch (ClassNotFoundException s) {
-            log.error("Class not found: " + s.toString());
+            log.error("Class not found", s);
         } catch (SQLException se) {
-			log.error("Error when opening connection to database.");
-			log.error(se);
+			log.error("Error when opening connection to database.", se);
 		}
         return null;
 	}
@@ -83,8 +83,7 @@ public class CustomDatabase {
                         listCOCOProblems.add(cocoProblem);
                     }
                 } catch (SQLException se) {
-                    log.error("List COCO problems: Error in database.");
-                    log.error(se.getMessage());
+                    log.error("List COCO problems: Error in database.", se);
                 } finally {
                     closeStatements(result, ps);
                 }
@@ -129,8 +128,7 @@ public class CustomDatabase {
                     cocoInput.setElements(elements);
                     cocoInput.setAttributes(attributes);
                 } catch (SQLException se) {
-                    log.error("Get COCO input: Error in database.");
-                    log.error(se.getMessage());
+                    log.error("Get COCO input: Error in database.", se);
                 } finally {
                     closeStatements(result, ps);
                 }
@@ -180,8 +178,7 @@ public class CustomDatabase {
                     s = con.createStatement();
                     s.executeUpdate("DELETE FROM coco_problems WHERE id_coco = " + inCOCO.getId());
                 } catch (SQLException se) {
-                    log.error("Delete COCO input: Error in database.");
-                    log.error(se.getMessage());
+                    log.error("Delete COCO input: Error in database.", se);
                 } finally {
                     closeStatements(ps, s);
                 }
@@ -260,8 +257,7 @@ public class CustomDatabase {
                         }
                     }
                 } catch (SQLException se) {
-                    log.error("Set COCO input: Error in database.");
-                    log.error(se.getMessage());
+                    log.error("Set COCO input: Error in database.", se);
                 } finally {
                     closeStatements(ps);
                 }
@@ -295,8 +291,7 @@ public class CustomDatabase {
                         }
                     }
                 } catch (SQLException se) {
-                    log.error("Set COCO output: Error in database.");
-                    log.error(se.getMessage());
+                    log.error("Set COCO output: Error in database.", se);
                 } finally {
                     closeStatements(ps);
                 }
@@ -323,8 +318,7 @@ public class CustomDatabase {
 
                     value = result.getInt(1);
                 } catch (SQLException se) {
-                    log.error("Get sequence: Error in database.");
-                    log.error(se.getMessage());
+                    log.error("Get sequence: Error in database.", se);
                 } finally {
                     closeStatements(result, st);
                 }
@@ -351,8 +345,7 @@ public class CustomDatabase {
                     }
                     rule = result.getString("rule_name");
                 } catch (SQLException se) {
-                    log.error("Get rule: Error in database.");
-                    log.error(se.getMessage());
+                    log.error("Get rule: Error in database.", se);
                 } finally {
                     closeStatements(result, ps);
                 }
@@ -379,8 +372,7 @@ public class CustomDatabase {
                     }
                     function = result.getString("function_name");
                 } catch (SQLException se) {
-                    log.error("Get function: Error in database.");
-                    log.error(se.getMessage());
+                    log.error("Get function: Error in database.", se);
                 } finally {
                     closeStatements(result, ps);
                 }
@@ -405,8 +397,7 @@ public class CustomDatabase {
                         functions.add(function);
                     }
                 } catch (SQLException se) {
-                    log.error("Get Functions: Error in database.");
-                    log.error(se.getMessage());
+                    log.error("Get Functions: Error in database.", se);
                 } finally {
                     closeStatements(result, s);
                 }
@@ -431,8 +422,7 @@ public class CustomDatabase {
                         rankRules.add(rule);
                     }
                 } catch (SQLException se) {
-                    log.error("Get rank rules: Error in database.");
-                    log.error(se.getMessage());
+                    log.error("Get rank rules: Error in database.", se);
                 } finally {
                     closeStatements(result, s);
                 }
@@ -464,8 +454,7 @@ public class CustomDatabase {
                         elements.add(new ElementVO(id, name, "", yValue));
                     }
                 } catch (SQLException se) {
-                    log.error("List COCO problems: Error in database.");
-                    log.error(se.getMessage());
+                    log.error("List COCO problems: Error in database.", se);
                 } finally {
                     closeStatements(result, ps);
                 }
@@ -499,8 +488,7 @@ public class CustomDatabase {
                         attributes.add(getAttribute(id));
                     }
                 } catch (SQLException se) {
-                    log.error("List COCO problems: Error in database.");
-                    log.error(se.getMessage());
+                    log.error("List COCO problems: Error in database.", se);
                 } finally {
                     closeStatements(result, ps);
                 }
@@ -530,8 +518,7 @@ public class CustomDatabase {
                     attribute = new AttributeVO(idAttribute, result.getString("attribute_name"), "",
                             result.getBigDecimal("optima"), result.getInt("id_rule"));
                 } catch (SQLException se) {
-                    log.error("Get attribute: Error in database.");
-                    log.error(se.getMessage());
+                    log.error("Get attribute: Error in database.", se);
                 } finally {
                     closeStatements(result, ps);
                 }
@@ -559,8 +546,7 @@ public class CustomDatabase {
 
                     return result.getString("rule_name");
                 } catch (SQLException se) {
-                    log.error("Get rule name: Error in database.");
-                    log.error(se.getMessage());
+                    log.error("Get rule name: Error in database.", se);
                 } finally {
                     closeStatements(result, ps);
                 }
@@ -597,8 +583,7 @@ public class CustomDatabase {
                         matrixRow.add(col, new CellVO(-1, element.getName() + "_" + attributeId, "", value, idealValue, ranking));
                     }
                 } catch (SQLException se) {
-                    log.error("Get row matrix: Error in database.");
-                    log.error(se.getMessage());
+                    log.error("Get row matrix: Error in database.", se);
                 } finally {
                     closeStatements(result, ps);
                 }
@@ -636,8 +621,7 @@ public class CustomDatabase {
                         log.info("Wrong user login.");
                     }
                 } catch (SQLException se) {
-                    log.error("User: Error in database.");
-                    log.error(se.getMessage());
+                    log.error("User: Error in database.", se);
                 } finally {
                     closeStatements(result, ps);
                 }
@@ -657,8 +641,7 @@ public class CustomDatabase {
                     ps.executeUpdate();
                     ps.close();
                 } catch (SQLException se) {
-                    log.error("Set last login user: Error in database.");
-                    log.error(se.getMessage());
+                    log.error("Set last login user: Error in database.", se);
                 } finally {
                     closeStatements(ps);
                 }
@@ -681,8 +664,7 @@ public class CustomDatabase {
                     ps.executeUpdate();
                     user.setId(getSequenceValue("sq_users"));
                 } catch (SQLException se) {
-                    log.error("Set user: Error in database.");
-                    log.error(se.getMessage());
+                    log.error("Set user: Error in database.", se);
                 } finally {
                     closeStatements(ps);
                 }
@@ -707,8 +689,7 @@ public class CustomDatabase {
                                 result.getString("user_surname"), result.getString("email"), result.getString("password"));
                     }
                 } catch (SQLException se) {
-                    log.error("Set user: Error in database.");
-                    log.error(se.getMessage());
+                    log.error("Set user: Error in database.", se);
                 } finally {
                     closeStatements(result, ps);
                 }
@@ -768,22 +749,20 @@ public class CustomDatabase {
     }
 
     private void closeStatements(ResultSet resultSet, Statement... statements) {
+        if (resultSet != null) {
+            try {
+                resultSet.close();
+            } catch (SQLException e) {
+                log.error("Error when closing resultSet.", e);
+            }
+        }
         for (Statement statement : statements) {
             if (statement != null) {
                 try {
                     statement.close();
                 } catch (SQLException e) {
-                    log.error("Error when closing prepareStatement.");
-                    log.error(e);
+                    log.error("Error when closing prepareStatement.", e);
                 }
-            }
-        }
-        if (resultSet != null) {
-            try {
-                resultSet.close();
-            } catch (SQLException e) {
-                log.error("Error when closing resultSet.");
-                log.error(e);
             }
         }
     }

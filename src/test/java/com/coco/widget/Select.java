@@ -11,10 +11,10 @@ public class Select {
     }
 
     public void select(String value) {
-        select.findElement(By.xpath("//option[@value='" + value + "']")).click();
+        select.findElement(By.xpath(".//option[@value='" + value + "']")).click();
     }
 
     public String getSelected() {
-        return select.findElement(By.xpath("//option[@selected]")).getAttribute("value");
+        return select.findElement(By.xpath(".//option[@selected]")).getAttribute("value");
     }
 }

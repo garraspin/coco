@@ -2,6 +2,7 @@ package com.coco.page;
 
 import static com.google.common.collect.Lists.transform;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -115,7 +116,8 @@ public class InputDataPage extends Page<InputDataPage> {
     }
 
     public List<String> getMatrixAttributeNames() {
-        List<String> result = Arrays.asList(text("inCOCO.attributeY").getValue());
+        List<String> result = new ArrayList<String>();
+        result.add(text("inCOCO.attributeY").getValue());
         result.addAll(webElementsToTextValues(attributeNameInputs()));
         return result;
     }
@@ -129,10 +131,11 @@ public class InputDataPage extends Page<InputDataPage> {
     }
 
     public List<String> getMatrixElement(int index) {
-        List<String> result = Arrays.asList(
+        List<String> result = new ArrayList<String>();
+        result.addAll(Arrays.asList(
                 text("inCOCO.elements[" + index + "].name").getValue(),
                 text("inCOCO.elements[" + index + "].yvalue").getValue()
-        );
+        ));
         result.addAll(webElementsToTextValues(tagsWithNameAttributeLike("input", "inCOCO.elements[" + index + "].cells[", "].value")));
         return result;
     }
