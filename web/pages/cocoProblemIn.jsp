@@ -7,6 +7,8 @@
 <nested:form action="/saveProblem.do?operation=save" method="post" enctype="multipart/form-data">
     <%! private final java.text.DecimalFormat df = new java.text.DecimalFormat("###.####"); %>
 
+    <html:errors />
+
 	<nested:nest property="inCOCO">
 		<nested:hidden property="id" />
 
@@ -94,7 +96,9 @@
 						<nested:iterate property="cells" type="com.coco.vo.CellVO" id="cell">
 							<td><nested:text size="10" property="value" value="<%= df.format(cell.getValue()) %>" /></td>
 						</nested:iterate>
-						
+
+                        <td>&nbsp;</td>
+
 						<td><nested:text size="10" property="yvalue" value="<%= df.format(element.getYvalue()) %>" /></td>
 					</tr>
 				</nested:iterate>

@@ -68,6 +68,6 @@
     </plug-in>
     <!-- ===================================================== Validator plugin -->
     <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
-        <set-property value="/org/apache/struts/validator/validator-rules.xml,/WEB-INF/validation.xml" property="pathnames"/>
+        <set-property value="/org/apache/struts/validator/validator-rules.xml,/WEB-INF/validation.xml,/WEB-INF/validation-extends-rule.xml" property="pathnames"/>
     </plug-in>
 </struts-config>
