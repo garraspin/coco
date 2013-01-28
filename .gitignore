@@ -1,5 +1,6 @@
 target/
 out/
+lib-src/
 coco.ipr
 coco.iml
 coco.iws

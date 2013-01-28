@@ -31,15 +31,17 @@ public class ShowProblemAction extends DispatchAction {
 			return mapping.findForward("initPage");
 		}
 
-		// Poner el problema seleccionado en sessión
-		UserContainer usercontainer = actionUtils.getUserContainer(request);
-		if (usercontainer.getListCOCO().getActualCOCO() == null) {
-			usercontainer.getListCOCO().setActualCOCO(new COCOProblem(inCOCO));
-		} else {
-			usercontainer.getListCOCO().getActualCOCO().setInCOCO(inCOCO);
-		}
+        // Poner el problema seleccionado en sesión
+        ((DynaValidatorForm) form).set("inCOCO", inCOCO);
 
-		((DynaValidatorForm) form).set("inCOCO", inCOCO);
+        // Poner el problema seleccionado en sesión
+        UserContainer usercontainer = actionUtils.getUserContainer(request);
+        if (usercontainer.getListCOCO().getActualCOCO() == null) {
+            usercontainer.getListCOCO().setActualCOCO(new COCOProblem(inCOCO));
+        } else {
+            usercontainer.getListCOCO().getActualCOCO().setInCOCO(inCOCO);
+        }
+
 		return mapping.findForward("inputPage");
 	}
 

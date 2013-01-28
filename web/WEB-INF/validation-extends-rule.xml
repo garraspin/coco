@@ -16,6 +16,6 @@
                        org.apache.commons.validator.Validator,
                        javax.servlet.http.HttpServletRequest,
                        javax.servlet.ServletContext"
-                 msg=""/>
+                 msg="errors.required" />
    </global>
 </form-validation>

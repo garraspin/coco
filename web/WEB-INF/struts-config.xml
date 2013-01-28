@@ -45,11 +45,11 @@
         <action path="/loginPage" forward="loginPageDef"/>
         <action path="/login" name="loginForm" scope="request" type="com.coco.action.LoginAction" validate="true" input="/loginPage.do"/>
         <action path="/subscribe" name="subscribeForm" scope="request" type="com.coco.action.SubscribeAction" validate="true" input="/loginPage.do" />
-        <action path="/logout" type="com.coco.action.LogoutAction"/>
-        <action path="/createProblem" name="problemForm" scope="request" type="com.coco.action.CreateProblemAction"/>
-        <action path="/saveProblem" name="problemForm" parameter="operation" scope="request" type="com.coco.action.SaveProblemAction"/>
-        <action path="/showProblem" name="problemForm" parameter="operation" scope="request" type="com.coco.action.ShowProblemAction"/>
-        <action path="/deleteProblem" type="com.coco.action.DeleteProblemAction"/>
+        <action path="/logout" type="com.coco.action.LogoutAction" />
+        <action path="/createProblem" name="problemForm" scope="request" type="com.coco.action.CreateProblemAction" validate="false" />
+        <action path="/saveProblem" name="problemForm" parameter="operation" scope="request" type="com.coco.action.SaveProblemAction" validate="true" input="inputPageDef" />
+        <action path="/showProblem" name="problemForm" parameter="operation" scope="request" type="com.coco.action.ShowProblemAction" validate="false" />
+        <action path="/deleteProblem" type="com.coco.action.DeleteProblemAction" />
         <action path="/initOutPage" forward="initOutPageDef"/>
         <action path="/initPage" forward="initPageDef"/>
         <action path="/xlsIn" forward="xlsInPageDef"/>

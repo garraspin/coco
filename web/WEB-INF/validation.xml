@@ -45,5 +45,43 @@
             </field>
         </form>
 
+        <form name="problemForm">
+            <field property="inCOCO.name" depends="required">
+                <arg key="coco.name" name="required" />
+            </field>
+            <field property="inCOCO.description" depends="required">
+                <arg key="coco.description" name="required" />
+            </field>
+            <field property="inCOCO.equilibrium" depends="required">
+                <arg key="coco.equilibrium" name="required" />
+            </field>
+
+            <field property="inCOCO.elements" depends="extends">
+                <var><var-name>extends</var-name><var-value>Element</var-value></var>
+            </field>
+            <field property="inCOCO.attributes" depends="extends">
+                <var><var-name>extends</var-name><var-value>Attribute</var-value></var>
+            </field>
+        </form>
+
+        <form name="Attribute">
+            <field property="name" depends="required">
+                <arg key="attribute name" name="required" resource="false" />
+            </field>
+        </form>
+        <form name="Element">
+            <field property="name" depends="required">
+                <arg key="element name" name="required" resource="false" />
+            </field>
+
+            <field property="cells" depends="extends">
+                <var><var-name>extends</var-name><var-value>Cell</var-value></var>
+            </field>
+        </form>
+        <form name="Cell">
+            <field property="value" depends="required">
+                <arg key="cell value" name="required" resource="false" />
+            </field>
+        </form>
     </formset>
 </form-validation>

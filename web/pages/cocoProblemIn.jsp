@@ -26,11 +26,22 @@
 				<!-- 2. coco problem name and description -->
 				<tr>
 					<td><bean:message key="coco.name" /></td>
-					<td><nested:text property="name" /></td>
+					<td>
+                        <nested:text property="name" />
+                        <nested:messages id="err_name" property="name">
+                            <div class="msgError"><bean:write name="err_name"/></div>
+                        </nested:messages>
+                    </td>
 				</tr>
 				<tr>
 					<td><bean:message key="coco.description" /></td>
-					<td><nested:text property="description" /></td>
+					<td>
+                        <nested:text property="description" />
+                        <nested:messages id="err_description" property="description">
+                            <div class="msgError"><bean:write name="err_description"/></div>
+                        </nested:messages>
+                    </td>
+
 				</tr>
 				<!-- 6. idFunction -->
 				<tr>
@@ -73,7 +84,13 @@
 					<!-- first row for attribute names -->
 					<td><bean:message key="coco.elementAttributeTitle" /></td>
 					<nested:iterate property="attributes" type="com.coco.vo.AttributeVO">
-						<td><nested:text size="10" property="name" /></td>
+						<td>
+                            <nested:text size="10" property="name" />
+                            <nested:messages id="err_attribute_name"  property="name">
+                                <div class="msgError"><bean:write name="err_attribute_name"/></div>
+                            </nested:messages>
+                        </td>
+
 						<nested:hidden property="id" />
 					</nested:iterate>
 					<td>
@@ -89,12 +106,22 @@
 				<!-- Element names , elementAttributesValues and YValues -->
 				<nested:iterate property="elements" indexId="idElements" type="com.coco.vo.ElementVO" id="element">
 					<tr>
-						<td><nested:text size="10" property="name" /></td>
+						<td>
+                            <nested:text size="10" property="name" />
+                            <nested:messages id="err_element_name" property="name">
+                                <div class="msgError"><bean:write name="err_element_name"/></div>
+                            </nested:messages>
+                        </td>
 						
 						<nested:hidden property="id" />
 						
 						<nested:iterate property="cells" type="com.coco.vo.CellVO" id="cell">
-							<td><nested:text size="10" property="value" value="<%= df.format(cell.getValue()) %>" /></td>
+							<td>
+                                <nested:text size="10" property="value" value="<%= df.format(cell.getValue()) %>" />
+                                <nested:messages id="err_element_cell_value" property="value">
+                                    <div class="msgError"><bean:write name="err_element_cell_value"/></div>
+                                </nested:messages>
+                            </td>
 						</nested:iterate>
 
                         <td>&nbsp;</td>
