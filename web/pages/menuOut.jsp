@@ -22,7 +22,6 @@
 			<html:link action="/initPage.do"><bean:message key="input.title"/></html:link>
 	  	</li>
 	  	<li>
-		  	<!-- TODO: show disabled link -->
 		  	<a><bean:message key="xls.out"/></a>
 	  	</li>
   	</logic:equal>

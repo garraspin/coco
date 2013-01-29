@@ -3,6 +3,7 @@
 <%@ taglib uri="/WEB-INF/struts-logic" prefix="logic"%>
 <%@ taglib uri="/WEB-INF/struts-nested" prefix="nested"%>
 
+<html:javascript formName="problemForm" />
 
 <nested:form action="/saveProblem.do?operation=save" method="post" enctype="multipart/form-data">
     <%! private final java.text.DecimalFormat df = new java.text.DecimalFormat("###.####"); %>
