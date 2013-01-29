@@ -1,6 +1,5 @@
 package com.coco.vo;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -107,10 +106,10 @@ public class InputVO extends BaseVO {
 		for (ElementVO elto : elements) {
 			List<CellVO> cells = elto.getCells();
 			int i = elements.indexOf(elto);
-			cells.add(new CellVO(-1, i + "_" + nCols, "", new BigDecimal(0), new BigDecimal(0), 0));
+			cells.add(new CellVO(-1, i + "_" + nCols, "", 0, 0, 0));
 		}
 		// Añadir atributos
-		attributes.add(new AttributeVO(-1, "Attribute " + nCols, "", new BigDecimal(0), -1));
+		attributes.add(new AttributeVO(-1, "Attribute " + nCols, "", 0, -1));
 	}
 
 	public void removeAttribute(int amount) {
@@ -141,11 +140,11 @@ public class InputVO extends BaseVO {
 		int nCols = attributes.size();
 
 		// Añadir elemento
-		ElementVO elto = new ElementVO(-1, "Element " + nRows, "", new BigDecimal(0));
+		ElementVO elto = new ElementVO(-1, "Element " + nRows, "", 0);
 
 		List<CellVO> cells = CellVO.getNewCellList();
 		for (int j = 0; j < nCols; j++) {
-			cells.add(new CellVO(-1, nRows + "_" + j, "", new BigDecimal(0), new BigDecimal(0), 0));
+			cells.add(new CellVO(-1, nRows + "_" + j, "", 0, 0, 0));
 		}
 		elto.setCells(cells);
 		elements.add(elto);
@@ -198,7 +197,7 @@ public class InputVO extends BaseVO {
 				comparator = new CellVO.MaximumComparator();
 				break;
 			case 3:
-				BigDecimal average = MathUtils.average(lCells);
+				double average = MathUtils.average(lCells);
 				comparator = new CellVO.AverageComparator(average);
 				break;
 			}

@@ -52,8 +52,8 @@
             <field property="inCOCO.description" depends="required">
                 <arg key="coco.description" name="required" />
             </field>
-            <field property="inCOCO.equilibrium" depends="required">
-                <arg key="coco.equilibrium" name="required" />
+            <field property="inCOCO.equilibrium" depends="integer">
+                <arg key="coco.equilibrium" name="integer" />
             </field>
 
             <field property="inCOCO.elements" depends="extends">
@@ -79,8 +79,8 @@
             </field>
         </form>
         <form name="Cell">
-            <field property="value" depends="required">
-                <arg key="cell value" name="required" resource="false" />
+            <field property="value" depends="double">
+                <arg key="cell value" name="double" resource="false" />
             </field>
         </form>
     </formset>

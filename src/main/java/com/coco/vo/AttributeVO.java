@@ -1,6 +1,5 @@
 package com.coco.vo;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,15 +9,15 @@ import org.apache.commons.collections.list.LazyList;
 public class AttributeVO extends BaseVO {
 	private static final long serialVersionUID = 7937812194230225447L;
 	// ID, name y description heredados de la clase BaseVO
-	private BigDecimal optima;
+	private double optima;
 	private int rankRule;
 
 	public AttributeVO() {
-		this.optima = new BigDecimal(0);
+		this.optima = 0;
 		this.rankRule = 0;
 	}
 
-	public AttributeVO(int id, String name, String desc, BigDecimal optima, int rankRule) {
+	public AttributeVO(int id, String name, String desc, double optima, int rankRule) {
 		super(id, name, desc);
 
 		this.optima = optima;
@@ -34,11 +33,11 @@ public class AttributeVO extends BaseVO {
 		return LazyList.decorate(new ArrayList<AttributeVO>(), factory);
 	}
 
-	public BigDecimal getOptima() {
+	public double getOptima() {
 		return optima;
 	}
 
-	public void setOptima(BigDecimal optima) {
+	public void setOptima(double optima) {
 		this.optima = optima;
 	}
 

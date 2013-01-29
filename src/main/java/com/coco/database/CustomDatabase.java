@@ -1,6 +1,5 @@
 package com.coco.database;
 
-import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -22,7 +21,6 @@ import com.coco.vo.InputVO;
 import com.coco.vo.OutputVO;
 import com.coco.vo.UserVO;
 import org.apache.log4j.Logger;
-import org.apache.taglibs.standard.tag.common.sql.DataSourceWrapper;
 
 public class CustomDatabase {
 
@@ -199,7 +197,7 @@ public class CustomDatabase {
                     ps.setInt(1, inCOCO.getIdFunction());
                     ps.setInt(2, idUser);
                     ps.setString(3, inCOCO.getName());
-                    ps.setBigDecimal(4, new BigDecimal(0));
+                    ps.setDouble(4, 0);
                     ps.setString(5, inCOCO.getDescription());
                     ps.setBoolean(6, inCOCO.getNegativeAllowed());
                     ps.setInt(7, inCOCO.getEquilibrium());
@@ -217,7 +215,7 @@ public class CustomDatabase {
                     for (AttributeVO att : inCOCO.getAttributes()) {
                         ps.setInt(1, att.getRankRule());
                         ps.setString(2, att.getName());
-                        ps.setBigDecimal(3, att.getOptima());
+                        ps.setDouble(3, att.getOptima());
                         ps.executeUpdate();
 
                         // Guardar el id_attribute
@@ -232,7 +230,7 @@ public class CustomDatabase {
                     ps.setInt(1, id_coco);
                     for (ElementVO elto : inCOCO.getElements()) {
                         ps.setString(2, elto.getName());
-                        ps.setBigDecimal(3, elto.getYvalue());
+                        ps.setDouble(3, elto.getYvalue());
                         ps.executeUpdate();
 
                         // Guardar el id_element
@@ -242,7 +240,7 @@ public class CustomDatabase {
 
                     // Insertar elements_attributes
                     ps = con.prepareStatement(
-                            "INSERT INTO elements_attributes (id_attribute, id_element, value, ranking, ideal_value) " +
+                            "INSERT INTO elements_attributes (id_attribute, id_element, VALUE, ranking, ideal_value) " +
                                     "VALUES (?, ?, ?, ?, ?)");
                     for (ElementVO elto : inCOCO.getElements()) {
                         for (int j = 0; j < inCOCO.getAttributes().size(); j++) {
@@ -250,9 +248,9 @@ public class CustomDatabase {
 
                             ps.setInt(1, inCOCO.getAttributes().get(j).getId());
                             ps.setInt(2, elto.getId());
-                            ps.setBigDecimal(3, cell.getValue());
+                            ps.setDouble(3, cell.getValue());
                             ps.setInt(4, cell.getRanking());
-                            ps.setBigDecimal(5, cell.getIdealValue());
+                            ps.setDouble(5, cell.getIdealValue());
                             ps.executeUpdate();
                         }
                     }
@@ -273,7 +271,7 @@ public class CustomDatabase {
                 try {
                     // Actualizar coco_problems
                     ps = con.prepareStatement("UPDATE coco_problems SET coco_solution = ? WHERE id_coco = ?");
-                    ps.setBigDecimal(1, outCOCO.getSolution());
+                    ps.setDouble(1, outCOCO.getSolution());
                     ps.setInt(2, outCOCO.getId());
                     ps.executeUpdate();
                     ps.close();
@@ -284,7 +282,7 @@ public class CustomDatabase {
                         for (AttributeVO att : inCOCO.getAttributes()) {
                             CellVO cell = elto.getCells().get(inCOCO.getAttributes().indexOf(att));
 
-                            ps.setBigDecimal(1, cell.getIdealValue());
+                            ps.setDouble(1, cell.getIdealValue());
                             ps.setInt(2, att.getId());
                             ps.setInt(3, elto.getId());
                             ps.executeUpdate();
@@ -447,7 +445,7 @@ public class CustomDatabase {
                     while (result.next()) {
                         String name = result.getString("element_name");
                         int id = result.getInt("id_element");
-                        BigDecimal yValue = result.getBigDecimal("y_value");
+                        double yValue = result.getDouble("y_value");
 
                         log.info("Element: " + name + yValue);
 
@@ -516,7 +514,7 @@ public class CustomDatabase {
                     }
 
                     attribute = new AttributeVO(idAttribute, result.getString("attribute_name"), "",
-                            result.getBigDecimal("optima"), result.getInt("id_rule"));
+                            result.getDouble("optima"), result.getInt("id_rule"));
                 } catch (SQLException se) {
                     log.error("Get attribute: Error in database.", se);
                 } finally {
@@ -574,8 +572,8 @@ public class CustomDatabase {
 
                     while (result.next()) {
                         int attributeId = result.getInt("id_attribute");
-                        BigDecimal value = result.getBigDecimal("value");
-                        BigDecimal idealValue = result.getBigDecimal("ideal_value");
+                        double value = result.getDouble("value");
+                        double idealValue = result.getDouble("ideal_value");
                         int ranking = result.getInt("ranking");
                         int col = indexOf(attributes, attributeId);
 
