@@ -1,5 +1,6 @@
 package com.coco.integration;
 
+import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -68,5 +69,29 @@ public class InputDataTest {
         assertThat(inputDataPage.getMatrixElement(0), is(Arrays.asList("Element 1", "10", "1.1", "2.2", "3.3")));
         assertThat(inputDataPage.getMatrixElement(1), is(Arrays.asList("Element 2", "20", "4.4", "5.5", "6.6")));
         assertThat(inputDataPage.getMatrixElement(2), is(Arrays.asList("Element 3", "30", "7.7", "8.8", "9.9")));
+    }
+
+    @Test
+    public void testCreateProblemErrorMessages() throws Exception {
+        InputDataPage inputDataPage = new InputDataPage(driver, TOM).load();
+
+        assertThat(inputDataPage.problemLinks().size(), is(0));
+
+        inputDataPage.clickCreateProblemMenuLink();
+        inputDataPage.setInputData("", "", "2", true, "1");
+        inputDataPage.setMatrixAttributeNames("Attribute Y", "", "", "");
+        inputDataPage.setMatrixOptimalValues("1.1", "2.2", "3.3");
+        inputDataPage.setMatrixRankRules("1", "2", "3");
+        inputDataPage.setMatrixElement(0, "", "10", "1.1", "2.2", "3.3");
+        inputDataPage.setMatrixElement(1, "", "20", "4.4", "5.5", "6.6");
+        inputDataPage.setMatrixElement(2, "", "30", "7.7", "8.8", "9.9");
+        inputDataPage.clickCreateButton();
+
+        assertThat(inputDataPage.errorMessages(), contains(
+                "Problem name is required.",
+                "Problem description is required.",
+                "Attribute name is required.", "Attribute name is required.", "Attribute name is required.",
+                "Element name is required.", "Element name is required.", "Element name is required."
+        ));
     }
 }

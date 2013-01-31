@@ -66,12 +66,12 @@
 
         <form name="Attribute">
             <field property="name" depends="required">
-                <arg key="attribute name" name="required" resource="false" />
+                <arg key="Attribute name" name="required" resource="false" />
             </field>
         </form>
         <form name="Element">
             <field property="name" depends="required">
-                <arg key="element name" name="required" resource="false" />
+                <arg key="Element name" name="required" resource="false" />
             </field>
 
             <field property="cells" depends="extends">
@@ -80,7 +80,7 @@
         </form>
         <form name="Cell">
             <field property="value" depends="double">
-                <arg key="cell value" name="double" resource="false" />
+                <arg key="Cell value" name="double" resource="false" />
             </field>
         </form>
     </formset>

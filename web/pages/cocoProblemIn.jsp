@@ -8,8 +8,6 @@
 <nested:form action="/saveProblem.do?operation=save" method="post" enctype="multipart/form-data">
     <%! private final java.text.DecimalFormat df = new java.text.DecimalFormat("###.####"); %>
 
-    <html:errors />
-
 	<nested:nest property="inCOCO">
 		<nested:hidden property="id" />
 
