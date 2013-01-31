@@ -1,6 +1,8 @@
 package com.coco.page;
 
+import static com.google.common.collect.Lists.newLinkedList;
 import static com.google.common.collect.Lists.transform;
+import static org.openqa.selenium.lift.Finders.link;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -196,5 +198,10 @@ public class InputDataPage extends Page<InputDataPage> {
         for (int i = 0; i < attributeNames.length; i++) {
             new Text(attributeInputs.get(i)).setValue(attributeNames[i]);
         }
+    }
+
+    public OutputDataPage clickOutputPageLink() {
+        getMenuLinks().get(1).click();
+        return new OutputDataPage(driver);
     }
 }

@@ -21,7 +21,7 @@
 			<th class="rounded-upright"></th>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody id="ranking-matrix">
 		<tr>
 			<td><bean:message key="coco.elementAttributeTitle" /></td>
 			
@@ -62,7 +62,7 @@
 			<th class="rounded-upright"></th>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody id="ideal-values-matrix">
 		<tr>
 			<td><bean:message key="coco.elementAttributeTitle" /></td>
 			
@@ -103,7 +103,7 @@
 			<th class="rounded-upright"></th>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody id="results-matrix">
 		<!-- 1. Attributes title -->
 		<tr>
 			<td></td>
@@ -169,7 +169,7 @@
 		<tr>
 			<td class="rounded-foot-left"><bean:message key="coco.solution" /></td>
 			
-			<td><nested:write property="outCOCO.solution" /></td>
+			<td id="solution-cell"><nested:write property="outCOCO.solution" /></td>
 			
 			<td class="rounded-foot-right" colspan="<%= numAttributes %>"></td>
 		</tr>
