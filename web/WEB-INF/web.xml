@@ -63,4 +63,8 @@
         </taglib>
     </jsp-config>
 
+    <error-page>
+        <error-code>404</error-code>
+        <location>/pages/error404.jsp</location>
+    </error-page>
 </web-app>

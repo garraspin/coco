@@ -6,11 +6,20 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 
 import com.coco.database.CustomDatabase;
+import org.apache.log4j.Logger;
 
 public class DirectDataSource implements DataSource {
+
+    private static final Logger log = Logger.getLogger(DirectDataSource.class);
+
     @Override
     public Connection getConnection() throws SQLException {
-        return CustomDatabase.getConnectionFromDriver();
+        try {
+            return CustomDatabase.getConnectionFromDriver();
+        } catch (ClassNotFoundException e) {
+            log.error(e);
+            return null;
+        }
     }
 
     @Override

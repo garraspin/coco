@@ -27,9 +27,7 @@
     </form-beans>
     <!-- ========================================= Global Exception Definitions -->
     <global-exceptions>
-        <!-- sample exception handler
-        <exception key="expired.password" type="app.ExpiredPasswordException" path="/changePassword.jsp"/>
-        -->
+        <exception key="error.server" type="java.lang.Exception" path="/pages/error.jsp" />
     </global-exceptions>
     <!-- =========================================== Global Forward Definitions -->
     <global-forwards>

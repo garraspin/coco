@@ -75,6 +75,5 @@ public class OutputDataTest {
         assertThat(outputDataPage.getSensitivityListInResultsMatrix(), is(Arrays.asList("2.6944", "2.6944", "2.6944")));
         assertThat(outputDataPage.getBestObjectListInResultsMatrix(), is(Arrays.asList("Element 2", "Element 2", "Element 2")));
         assertThat(outputDataPage.getSolution(), is("0.0"));
-
     }
 }

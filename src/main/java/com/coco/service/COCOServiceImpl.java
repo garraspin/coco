@@ -2,6 +2,7 @@ package com.coco.service;
 
 import java.util.List;
 
+import javax.naming.NamingException;
 import javax.servlet.ServletContext;
 
 import com.coco.database.CustomDatabase;
@@ -17,7 +18,7 @@ public class COCOServiceImpl implements ICOCOService {
 	// Objeto para la conexión a la base de datos
 	CustomDatabase database = null;
 
-	public COCOServiceImpl() {
+	public COCOServiceImpl() throws NamingException {
 		// Inicializar la base de datos
 		database = new CustomDatabase();
 	}

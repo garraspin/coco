@@ -29,7 +29,7 @@ public class CustomDatabase {
 
 	private final DataSource dataSource;
 
-    public CustomDatabase() {
+    public CustomDatabase() throws NamingException {
         this.dataSource = getDataSource();
     }
 
@@ -37,27 +37,28 @@ public class CustomDatabase {
         this.dataSource = dataSource;
     }
 
-	private static DataSource getDataSource() {
+	private static DataSource getDataSource() throws NamingException {
 		try {
 			Context initCtx = new InitialContext();
 			DataSource ds = (DataSource) initCtx.lookup(COCODB_CONTEXT);
 			return ds;
 		} catch (NamingException s) {
 			log.error("Class not found", s);
+            throw s;
 		}
-        return null;
 	}
 
-	public static Connection getConnectionFromDriver() {
+	public static Connection getConnectionFromDriver() throws ClassNotFoundException, SQLException {
 		try {
 			Class.forName("org.postgresql.Driver");
             return DriverManager.getConnection("jdbc:postgresql://localhost:5432/cocoDB", "smunoz", "");
         } catch (ClassNotFoundException s) {
             log.error("Class not found", s);
+            throw s;
         } catch (SQLException se) {
 			log.error("Error when opening connection to database.", se);
+            throw se;
 		}
-        return null;
 	}
 
 	public List<BaseVO> getListCOCOProblems(final int idUser) {
@@ -687,7 +688,7 @@ public class CustomDatabase {
                                 result.getString("user_surname"), result.getString("email"), result.getString("password"));
                     }
                 } catch (SQLException se) {
-                    log.error("Set user: Error in database.", se);
+                    log.error("Get user: Error in database.", se);
                 } finally {
                     closeStatements(result, ps);
                 }
