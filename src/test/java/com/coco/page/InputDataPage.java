@@ -1,8 +1,6 @@
 package com.coco.page;
 
-import static com.google.common.collect.Lists.newLinkedList;
 import static com.google.common.collect.Lists.transform;
-import static org.openqa.selenium.lift.Finders.link;
 
 import java.util.ArrayList;
 import java.util.Arrays;
