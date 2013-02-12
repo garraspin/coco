@@ -59,8 +59,7 @@ public class BaseVO implements java.io.Serializable {
 	}
 
 	public String toString() {
-		return getClass().toString() + ": " + id + ", " + name + ", "
-				+ description;
+		return getClass().toString() + ": " + id + ", " + name + ", " + description;
 	}
 	
 	public static class NameComparator implements Comparator<BaseVO>, Serializable {

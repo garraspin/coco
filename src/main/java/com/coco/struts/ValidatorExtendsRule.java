@@ -1,28 +1,26 @@
 package com.coco.struts;
 
-import java.util.Iterator;
 import java.util.Collection;
+import java.util.Iterator;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.beanutils.PropertyUtils;
+import org.apache.commons.validator.Arg;
+import org.apache.commons.validator.Field;
+import org.apache.commons.validator.Validator;
+import org.apache.commons.validator.ValidatorAction;
+import org.apache.commons.validator.ValidatorException;
+import org.apache.commons.validator.ValidatorResults;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 import org.apache.struts.validator.Resources;
-import org.apache.commons.validator.Field;
-import org.apache.commons.validator.ValidatorAction;
-import org.apache.commons.validator.Validator;
-import org.apache.commons.validator.ValidatorResults;
-import org.apache.commons.validator.ValidatorException;
-import org.apache.commons.validator.Arg;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.apache.commons.beanutils.PropertyUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ValidatorExtendsRule {
 
- /**
-  * Commons Logging
-  */
-  private static Log logger = LogFactory.getLog(ValidatorExtendsRule.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(ValidatorExtendsRule.class);
 
     public ValidatorExtendsRule() {
     }
@@ -57,7 +55,7 @@ public class ValidatorExtendsRule {
         // Get the validation key
         String key = field.getVarValue("extends");
         if (key == null || key.length() == 0) {
-            logger.error("'extends' var is missing for " + formAndProperty);
+            LOGGER.error("'extends' var is missing for " + formAndProperty);
             errors.add(ActionMessages.GLOBAL_MESSAGE, new ActionMessage("errors.extends", formAndProperty));
             return Boolean.FALSE;
         }
@@ -70,13 +68,13 @@ public class ValidatorExtendsRule {
             try {
                 value = PropertyUtils.getProperty(bean, field.getProperty());
             } catch(Exception e) {
-                logger.error("Error retrieving property '" + formAndProperty + "' "+e.getMessage(), e);
+                LOGGER.error("Error retrieving property '" + formAndProperty + "' " + e.getMessage(), e);
                 errors.add(ActionMessages.GLOBAL_MESSAGE, new ActionMessage("errors.extends", formAndProperty));
             }
         }
 
         if (value == null) {
-            logger.error("Property '" + formAndProperty + "' is NULL");
+            LOGGER.error("Property '" + formAndProperty + "' is NULL");
             errors.add(ActionMessages.GLOBAL_MESSAGE, new ActionMessage("errors.extends", formAndProperty));
             return Boolean.FALSE;
         }
@@ -134,14 +132,12 @@ public class ValidatorExtendsRule {
                                                      ActionMessages errors,
                                                      ActionMessages newErrors,
                                                      String fieldPrefix) {
-
-
         // Validate
         ValidatorResults results = null;
         try {
             results = validator.validate();
         } catch (ValidatorException e) {
-            logger.error(e.getMessage(), e);
+            LOGGER.error(e.getMessage(), e);
         }
 
         // Get Additional Argument
@@ -155,7 +151,7 @@ public class ValidatorExtendsRule {
                 try {
                     argValue = PropertyUtils.getProperty(bean, argKey);
                 } catch(Exception e) {
-                    logger.error("Error retrieving property '" + argKey + "' "+e.getMessage(), e);
+                    LOGGER.error("Error retrieving property '" + argKey + "' " + e.getMessage(), e);
                 }
                 argValue = argValue == null || "".equals(argValue) ? "???" : argValue;
             }

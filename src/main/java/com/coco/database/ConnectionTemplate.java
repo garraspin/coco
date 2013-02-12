@@ -4,7 +4,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import javax.sql.DataSource;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ConnectionTemplate {
 
@@ -12,7 +13,7 @@ public class ConnectionTemplate {
         T execute(Connection con);
     }
 
-    private static final Logger log = Logger.getLogger(ConnectionTemplate.class);
+    private static final Logger log = LoggerFactory.getLogger(ConnectionTemplate.class);
 
     private final DataSource dataSource;
 

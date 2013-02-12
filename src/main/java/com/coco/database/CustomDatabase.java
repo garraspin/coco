@@ -20,11 +20,12 @@ import com.coco.vo.ElementVO;
 import com.coco.vo.InputVO;
 import com.coco.vo.OutputVO;
 import com.coco.vo.UserVO;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class CustomDatabase {
 
-	private static final Logger log = Logger.getLogger(CustomDatabase.class);
+	private static final Logger log = LoggerFactory.getLogger(CustomDatabase.class);
     private static final String COCODB_CONTEXT = "java:comp/env/jdbc/cocoDB";
 
 	private final DataSource dataSource;
@@ -78,7 +79,7 @@ public class CustomDatabase {
                         String description = result.getString("coco_description");
                         BaseVO cocoProblem = new BaseVO(id, name, description);
 
-                        log.info(cocoProblem);
+                        log.info(cocoProblem.toString());
                         listCOCOProblems.add(cocoProblem);
                     }
                 } catch (SQLException se) {

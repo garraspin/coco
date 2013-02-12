@@ -6,12 +6,13 @@ import javax.servlet.http.HttpSession;
 import com.coco.service.COCOServiceFactoryImpl;
 import com.coco.service.ICOCOService;
 import com.coco.service.ICOCOServiceFactory;
-import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionServlet;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ActionUtils {
 
-    private final Logger log = Logger.getLogger(ActionUtils.class);
+    private final Logger log = LoggerFactory.getLogger(ActionUtils.class);
 
     // Obtener la instancia del objeto de la aplicación por el nombre
     protected <T> T getApplicationObject(ActionServlet servlet, String attrName) {

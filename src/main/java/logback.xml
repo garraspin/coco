@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+    <appender name="myAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%5p] %d{hh:mm:ss} (%F:%M:%L) %m%n</pattern>
+        </encoder>
+    </appender>
+    <root level="info">
+        <appender-ref ref="myAppender"/>
+    </root>
+</configuration>

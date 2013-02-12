@@ -8,14 +8,15 @@ import com.coco.service.ICOCOService;
 import com.coco.struts.ActionUtils;
 import com.coco.struts.UserContainer;
 import com.coco.vo.UserVO;
-import org.apache.log4j.Logger;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class SubscribeAction extends Action {
-    private final Logger log = Logger.getLogger(SubscribeAction.class);
+    private final Logger log = LoggerFactory.getLogger(SubscribeAction.class);
     private final ActionUtils actionUtils = new ActionUtils();
 
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
@@ -54,7 +55,7 @@ public class SubscribeAction extends Action {
 
 			// No es necesario buscar la lista de problemas porque no tiene.
 
-			log.info(existingContainer.getUserVO());
+			log.info(existingContainer.getUserVO().toString());
 
 			return mapping.findForward("initPage");
 		}

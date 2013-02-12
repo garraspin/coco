@@ -10,17 +10,18 @@ import com.coco.struts.ActionUtils;
 import com.coco.struts.UserContainer;
 import com.coco.vo.BaseVO;
 import com.coco.vo.UserVO;
-import org.apache.log4j.Logger;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class LoginAction extends Action {
 
-    private final Logger log = Logger.getLogger(LoginAction.class);
+    private final Logger log = LoggerFactory.getLogger(LoginAction.class);
     private final ActionUtils actionUtils = new ActionUtils();
 
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
@@ -57,7 +58,7 @@ public class LoginAction extends Action {
 			// Poner la lista de problemas en UserContainer
 			existingContainer.getListCOCO().setProblems(listCOCOProblems);
 
-			log.info(existingContainer.getUserVO());
+			log.info(existingContainer.getUserVO().toString());
 
 			return mapping.findForward("initPage");
 		}
