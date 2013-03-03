@@ -51,6 +51,7 @@
             <element id="library" level="project" name="Maven: taglibs:standard:1.0.4" />
             <element id="library" level="project" name="Maven: xalan:xalan:2.6.0" />
             <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.2.2" />
+            <element id="library" level="project" name="Maven: commons-io:commons-io:2.4" />
             <element id="library" level="project" name="Maven: net.sourceforge.jexcelapi:jxl:2.6.12" />
             <element id="library" level="project" name="Maven: log4j:log4j:1.2.14" />
             <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.2" />
@@ -419,15 +420,15 @@
         <root url="jar://$M2_REPO$/commons-fileupload/commons-fileupload/1.2.2/commons-fileupload-1.2.2-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: commons-io:commons-io:1.4">
+    <library name="Maven: commons-io:commons-io:2.4">
       <CLASSES>
-        <root url="jar://$M2_REPO$/commons-io/commons-io/1.4/commons-io-1.4.jar!/" />
+        <root url="jar://$M2_REPO$/commons-io/commons-io/2.4/commons-io-2.4.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$M2_REPO$/commons-io/commons-io/1.4/commons-io-1.4-javadoc.jar!/" />
+        <root url="jar://$M2_REPO$/commons-io/commons-io/2.4/commons-io-2.4-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$M2_REPO$/commons-io/commons-io/1.4/commons-io-1.4-sources.jar!/" />
+        <root url="jar://$M2_REPO$/commons-io/commons-io/2.4/commons-io-2.4-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: commons-lang:commons-lang:2.5">
