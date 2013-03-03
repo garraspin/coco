@@ -52,7 +52,7 @@
         <action path="/initPage" forward="initPageDef"/>
         <action path="/xlsIn" forward="xlsInPageDef"/>
         <action path="/loadXLS" name="xlsForm" type="com.coco.action.LoadXLS" scope="request"/>
-        <action path="/downloadXLS" name="problemForm" type="com.coco.action.DownloadXLS"/>
+        <action path="/downloadXLS" name="problemForm" type="com.coco.action.DownloadXLS" validate="false" />
     </action-mappings>
     <!-- ============================================= Controller Configuration -->
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
