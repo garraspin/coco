@@ -43,6 +43,7 @@
         <action path="/loginPage" forward="loginPageDef"/>
         <action path="/login" name="loginForm" scope="request" type="com.coco.action.LoginAction" validate="true" input="/loginPage.do"/>
         <action path="/subscribe" name="subscribeForm" scope="request" type="com.coco.action.SubscribeAction" validate="true" input="/loginPage.do" />
+        <action path="/deleteUser" type="com.coco.action.DeleteUserAction" />
         <action path="/logout" type="com.coco.action.LogoutAction" />
         <action path="/createProblem" name="problemForm" scope="request" type="com.coco.action.CreateProblemAction" validate="false" />
         <action path="/saveProblem" name="problemForm" parameter="operation" scope="request" type="com.coco.action.SaveProblemAction" validate="true" input="inputPageDef" />

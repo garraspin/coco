@@ -37,4 +37,6 @@ public interface ICOCOService {
 	public void logout(String email);
 
 	public void destroy();
+
+    public void deleteUser(int userId);
 }

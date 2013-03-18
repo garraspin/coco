@@ -24,7 +24,11 @@
   <li>
 	<html:link action="xlsIn"><bean:message key="xls.in"/></html:link>
   </li>
-  
+
+  <li>
+    <html:link onclick="return confirm('Want to delete ?')" action="/deleteUser"><bean:message key="input.user.delete"/></html:link>
+  </li>
+
   <li style="float: right">			
 	<html:link action="/logout"><bean:message key="button.logout"/></html:link>		
   </li>

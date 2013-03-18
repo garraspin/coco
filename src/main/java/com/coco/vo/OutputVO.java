@@ -1,5 +1,7 @@
 package com.coco.vo;
 
+import static java.lang.Math.sqrt;
+
 import java.util.List;
 
 import com.coco.MathUtils;
@@ -156,7 +158,7 @@ public class OutputVO extends BaseVO {
 		}
 
 		setBestObjects(calculateBestObjects(inCOCO));
-		setIdealYValues(calculateIdealYValues(inCOCO.getElements()));
+//		setIdealYValues(calculateIdealYValues(inCOCO.getElements()));
 		setImportanceObjects(calculateImportanceObjects(inCOCO));
 		setSensitivityObjects(calculateSensitivityObjects(inCOCO));
 
@@ -178,6 +180,6 @@ public class OutputVO extends BaseVO {
             solution += diff * diff;
 		}
 
-		this.solution *= solution;
+		this.solution = sqrt(solution * solution);
 	}
 }

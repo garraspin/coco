@@ -86,4 +86,9 @@ public class COCOServiceImpl implements ICOCOService {
 	public UserVO getUser(String email, String password) {
 		return database.getUser(email, password);
 	}
+
+    @Override
+    public void deleteUser(int userId) {
+        database.deleteUser(userId);
+    }
 }

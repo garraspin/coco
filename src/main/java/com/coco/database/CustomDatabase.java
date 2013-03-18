@@ -242,7 +242,7 @@ public class CustomDatabase {
 
                     // Insertar elements_attributes
                     ps = con.prepareStatement(
-                            "INSERT INTO elements_attributes (id_attribute, id_element, VALUE, ranking, ideal_value) " +
+                            "INSERT INTO elements_attributes (id_attribute, id_element, value, ranking, ideal_value) " +
                                     "VALUES (?, ?, ?, ?, ?)");
                     for (ElementVO elto : inCOCO.getElements()) {
                         for (int j = 0; j < inCOCO.getAttributes().size(); j++) {
@@ -765,5 +765,30 @@ public class CustomDatabase {
                 }
             }
         }
+    }
+
+    public void deleteUser(final int userId) {
+        List<BaseVO> problems = getListCOCOProblems(userId);
+
+        for (BaseVO problem : problems) {
+            deleteCOCOInput(getCOCOInput(problem.getId()));
+        }
+
+        new ConnectionTemplate(dataSource).execute(new ConnectionTemplate.Template<Void>() {
+            @Override public Void execute(Connection con) {
+                PreparedStatement ps = null;
+                try {
+                    ps = con.prepareStatement("DELETE FROM users WHERE id_user = ?");
+                    ps.setInt(1, userId);
+                    ps.executeUpdate();
+
+                } catch (SQLException e) {
+                    log.error("Error when deleting user", e);
+                } finally {
+                    closeStatements(ps);
+                }
+                return null;
+            }
+        });
     }
 }
