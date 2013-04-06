@@ -12,7 +12,7 @@
 			<table width="100%">
 				<tr>
 					<td width="75%">
-						<html:link page="/showProblem.do?operation=showInput" paramId="id" paramName="problems"	paramProperty="id">
+						<html:link action="/showProblem.do?operation=showInput" paramId="id" paramName="problems" paramProperty="id">
 							<bean:write name="problems" property="name" />
 						</html:link>
 					</td>

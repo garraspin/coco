@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AntConfiguration">
-    <defaultAnt bundledAnt="true" />
-  </component>
   <component name="ArtifactManager">
     <artifact type="exploded-war" build-on-make="true" name="coco">
       <output-path>$PROJECT_DIR$/out/artifacts/coco</output-path>
@@ -97,7 +94,24 @@
       <module name="coco" target="1.6" />
     </bytecodeTargetLevel>
   </component>
-  <component name="DataSourceManagerImpl" compressed="false" hash="17349111" />
+  <component name="DataSourceManagerImpl" format="xml" hash="17349111">
+    <data-source source="LOCAL" name="Data Source" product="PostgreSQL" version="9.2.1" jdbc-version="3.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.1 JDBC3 (build 901)" uuid="0a836489-56c2-49b7-9854-5afdbef6bec2">
+      <identifier-quote-string>&quot;</identifier-quote-string>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/cocoDB</jdbc-url>
+      <user-name>smunoz</user-name>
+      <schema-pattern>*.public</schema-pattern>
+      <default-dialect>PostgreSQL</default-dialect>
+      <libraries>
+        <library>
+          <url>jar://$PROJECT_DIR$/lib/postgresql-9.1-901.jdbc3.jar!/</url>
+        </library>
+        <library>
+          <url>file://$PROJECT_DIR$/lib/postgresql-driver-license.txt</url>
+        </library>
+      </libraries>
+    </data-source>
+  </component>
   <component name="DependencyValidationManager">
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>

@@ -143,9 +143,8 @@
                         <phase>package</phase>
                         <configuration>
                             <path>/coco</path>
-                            <enableNaming>false</enableNaming>
-                            <finalName>standalone.jar</finalName>
-                            <!--<charset>utf-8</charset>-->
+                            <enableNaming>true</enableNaming>
+                            <finalName>coco-standalone.jar</finalName>
                             <extraDependencies>
                                 <dependency>
                                     <groupId>org.slf4j</groupId>
