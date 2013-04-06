@@ -1,3 +1,5 @@
+CREATE DATABASE cocoDB;
+
 CREATE SEQUENCE "sq_objective_functions" START 1 INCREMENT 1;
 
 CREATE TABLE objective_functions (
