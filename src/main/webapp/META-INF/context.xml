@@ -6,10 +6,10 @@
               maxActive="10"
               maxIdle="5"
               maxWait="5000"
-              name="jdbc/cocoDB"
+              name="jdbc/cocodb"
               password=""
               type="javax.sql.DataSource"
-              url="jdbc:postgresql://localhost:5432/cocoDB"
+              url="jdbc:postgresql://localhost:5432/cocodb"
               username="smunoz"
               validationQuery="select count(*) from pg_tables"/>
 </Context>

@@ -26,7 +26,7 @@ import org.slf4j.LoggerFactory;
 public class CustomDatabase {
 
 	private static final Logger log = LoggerFactory.getLogger(CustomDatabase.class);
-    private static final String COCODB_CONTEXT = "java:comp/env/jdbc/cocoDB";
+    private static final String COCODB_CONTEXT = "java:comp/env/jdbc/cocodb";
 
 	private final DataSource dataSource;
 
@@ -52,7 +52,7 @@ public class CustomDatabase {
 	public static Connection getConnectionFromDriver() throws ClassNotFoundException, SQLException {
 		try {
 			Class.forName("org.postgresql.Driver");
-            return DriverManager.getConnection("jdbc:postgresql://localhost:5432/cocoDB", "smunoz", "");
+            return DriverManager.getConnection("jdbc:postgresql://localhost:5432/cocodb", "smunoz", "");
         } catch (ClassNotFoundException s) {
             log.error("Class not found", s);
             throw s;
