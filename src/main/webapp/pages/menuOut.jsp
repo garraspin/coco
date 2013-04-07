@@ -13,7 +13,7 @@
 		  	</html:link>
 	  	</li>
 	  	<li>
-	  		<html:link action="downloadXLS"><bean:message key="xls.out"/></html:link>
+	  		<html:link action="/downloadXLS"><bean:message key="xls.out"/></html:link>
   		</li>		
 	</logic:notEqual>
 	

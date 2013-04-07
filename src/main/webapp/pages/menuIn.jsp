@@ -22,7 +22,7 @@
   </li>
   
   <li>
-	<html:link action="xlsIn"><bean:message key="xls.in"/></html:link>
+	<html:link action="/xlsIn"><bean:message key="xls.in"/></html:link>
   </li>
 
   <li>

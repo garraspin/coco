@@ -52,7 +52,7 @@ public class CustomDatabase {
 	public static Connection getConnectionFromDriver() throws ClassNotFoundException, SQLException {
 		try {
 			Class.forName("org.postgresql.Driver");
-            return DriverManager.getConnection("jdbc:postgresql://localhost:5432/cocodb", "smunoz", "");
+            return DriverManager.getConnection("jdbc:postgresql://localhost:5432/cocodb", "postgres", "admin");
         } catch (ClassNotFoundException s) {
             log.error("Class not found", s);
             throw s;

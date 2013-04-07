@@ -36,7 +36,7 @@ public class DownloadXLS extends Action {
         }
 
         response.setContentType("application/vnd.ms-excel");
-		response.setHeader("Content-Disposition", "attachment; filename=sampleName.xls");
+		response.setHeader("Content-Disposition", "attachment; filename=cocoProblem.xls");
 
 		UserContainer existingContainer = actionUtils.getUserContainer(request);
 		MessageResources messageResources = getResources(request);
@@ -98,7 +98,7 @@ public class DownloadXLS extends Action {
                 CellVO cell = elto.getCells().get(j);
                 s.addCell(new Label(1 + j, 9 + i, String.valueOf(cell.getValue())));
             }
-            s.addCell(new Label(1 + elto.getCells().size(), 9 + i, String.valueOf(outCOCO.getIdealYValues()[i])));
+            s.addCell(new Label(1 + elto.getCells().size(), 9 + i, String.valueOf(elto.getYvalue())));
         }
         // rankRules and Optimal values
         s.addCell(new Label(0, 14, messageResources.getMessage("coco.optimalTitle")));
